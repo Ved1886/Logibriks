@@ -513,168 +513,217 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   // 8. QUOTE CALCULATOR WIZARD
   // ============================================
-  let currentStep = 1;
-  const totalSteps = 4;
+  if (document.getElementById('quote-wizard')) {
+    let currentStep = 1;
+    const totalSteps = 4;
 
-  // Distance matrix (simplified, in km)
-  const distances = {
-    surat:     { surat: 0, mumbai: 284, delhi: 1184, bangalore: 1237, chennai: 1568, kolkata: 1926, hyderabad: 900, ahmedabad: 265, pune: 332 },
-    mumbai:    { surat: 284, mumbai: 0, delhi: 1400, bangalore: 984, chennai: 1331, kolkata: 2050, hyderabad: 710, ahmedabad: 524, pune: 148 },
-    delhi:     { surat: 1184, mumbai: 1400, delhi: 0, bangalore: 2150, chennai: 2182, kolkata: 1472, hyderabad: 1500, ahmedabad: 940, pune: 1417 },
-    bangalore: { surat: 1237, mumbai: 984, delhi: 2150, bangalore: 0, chennai: 347, kolkata: 1871, hyderabad: 570, ahmedabad: 1497, pune: 840 },
-    chennai:   { surat: 1568, mumbai: 1331, delhi: 2182, bangalore: 347, chennai: 0, kolkata: 1676, hyderabad: 627, ahmedabad: 1829, pune: 1172 },
-    kolkata:   { surat: 1926, mumbai: 2050, delhi: 1472, bangalore: 1871, chennai: 1676, kolkata: 0, hyderabad: 1500, ahmedabad: 1890, pune: 1888 },
-    hyderabad: { surat: 900, mumbai: 710, delhi: 1500, bangalore: 570, chennai: 627, kolkata: 1500, hyderabad: 0, ahmedabad: 1150, pune: 560 },
-    ahmedabad: { surat: 265, mumbai: 524, delhi: 940, bangalore: 1497, chennai: 1829, kolkata: 1890, hyderabad: 1150, ahmedabad: 0, pune: 662 },
-    pune:      { surat: 332, mumbai: 148, delhi: 1417, bangalore: 840, chennai: 1172, kolkata: 1888, hyderabad: 560, ahmedabad: 662, pune: 0 }
-  };
+    // Distance matrix (simplified, in km)
+    const distances = {
+      surat:     { surat: 0, mumbai: 284, delhi: 1184, bangalore: 1237, chennai: 1568, kolkata: 1926, hyderabad: 900, ahmedabad: 265, pune: 332 },
+      mumbai:    { surat: 284, mumbai: 0, delhi: 1400, bangalore: 984, chennai: 1331, kolkata: 2050, hyderabad: 710, ahmedabad: 524, pune: 148 },
+      delhi:     { surat: 1184, mumbai: 1400, delhi: 0, bangalore: 2150, chennai: 2182, kolkata: 1472, hyderabad: 1500, ahmedabad: 940, pune: 1417 },
+      bangalore: { surat: 1237, mumbai: 984, delhi: 2150, bangalore: 0, chennai: 347, kolkata: 1871, hyderabad: 570, ahmedabad: 1497, pune: 840 },
+      chennai:   { surat: 1568, mumbai: 1331, delhi: 2182, bangalore: 347, chennai: 0, kolkata: 1676, hyderabad: 627, ahmedabad: 1829, pune: 1172 },
+      kolkata:   { surat: 1926, mumbai: 2050, delhi: 1472, bangalore: 1871, chennai: 1676, kolkata: 0, hyderabad: 1500, ahmedabad: 1890, pune: 1888 },
+      hyderabad: { surat: 900, mumbai: 710, delhi: 1500, bangalore: 570, chennai: 627, kolkata: 1500, hyderabad: 0, ahmedabad: 1150, pune: 560 },
+      ahmedabad: { surat: 265, mumbai: 524, delhi: 940, bangalore: 1497, chennai: 1829, kolkata: 1890, hyderabad: 1150, ahmedabad: 0, pune: 662 },
+      pune:      { surat: 332, mumbai: 148, delhi: 1417, bangalore: 840, chennai: 1172, kolkata: 1888, hyderabad: 560, ahmedabad: 662, pune: 0 }
+    };
 
-  const freightRates = { ftl: 28, ptl: 38, express: 55, cold: 65 };
-  const cargoMultipliers = { general: 1, perishable: 1.25, hazardous: 1.5, fragile: 1.3, electronics: 1.15 };
-  const insuranceRates = { no: 0, basic: 0.5, full: 1.2 };
+    const freightRates = { ftl: 28, ptl: 38, express: 55, cold: 65 };
+    const cargoMultipliers = { general: 1, perishable: 1.25, hazardous: 1.5, fragile: 1.3, electronics: 1.15 };
+    const insuranceRates = { no: 0, basic: 0.5, full: 1.2 };
 
-  function goToStep(step) {
-    currentStep = step;
+    function goToStep(step) {
+      currentStep = step;
 
-    // Update step circles
-    for (let i = 1; i <= totalSteps; i++) {
-      const circle = document.getElementById(`step-${i}`);
-      circle.classList.remove('active', 'completed');
+      // Update step circles
+      for (let i = 1; i <= totalSteps; i++) {
+        const circle = document.getElementById(`step-${i}`);
+        circle.classList.remove('active', 'completed');
 
-      if (i < step) {
-        circle.classList.add('completed');
-        circle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>';
-      } else if (i === step) {
-        circle.classList.add('active');
-        circle.textContent = i;
-      } else {
-        circle.textContent = i;
+        if (i < step) {
+          circle.classList.add('completed');
+          circle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>';
+        } else if (i === step) {
+          circle.classList.add('active');
+          circle.textContent = i;
+        } else {
+          circle.textContent = i;
+        }
+      }
+
+      // Update connectors
+      for (let i = 1; i < totalSteps; i++) {
+        const conn = document.getElementById(`connector-${i}`);
+        conn.classList.toggle('completed', i < step);
+      }
+
+      // Show panels
+      for (let i = 1; i <= totalSteps; i++) {
+        const panel = document.getElementById(`wizard-step-${i}`);
+        panel.classList.toggle('active', i === step);
       }
     }
 
-    // Update connectors
-    for (let i = 1; i < totalSteps; i++) {
-      const conn = document.getElementById(`connector-${i}`);
-      conn.classList.toggle('completed', i < step);
-    }
-
-    // Show panels
-    for (let i = 1; i <= totalSteps; i++) {
-      const panel = document.getElementById(`wizard-step-${i}`);
-      panel.classList.toggle('active', i === step);
-    }
-  }
-
-  // Step navigation buttons
-  document.getElementById('wizard-next-1')?.addEventListener('click', () => {
-    const origin = document.getElementById('origin-city').value;
-    const dest = document.getElementById('dest-city').value;
-    if (!origin || !dest) {
-      shakeElement(document.getElementById('wizard-step-1').querySelector('.wizard-form-grid'));
-      return;
-    }
-    if (origin === dest) {
-      shakeElement(document.getElementById('dest-city'));
-      return;
-    }
-    goToStep(2);
-  });
-
-  document.getElementById('wizard-prev-2')?.addEventListener('click', () => goToStep(1));
-  document.getElementById('wizard-next-2')?.addEventListener('click', () => {
-    const weight = document.getElementById('cargo-weight').value;
-    const freight = document.getElementById('freight-type').value;
-    const cargo = document.getElementById('cargo-type').value;
-    if (!weight || !freight || !cargo) {
-      shakeElement(document.getElementById('wizard-step-2').querySelector('.wizard-form-grid'));
-      return;
-    }
-    goToStep(3);
-  });
-
-  document.getElementById('wizard-prev-3')?.addEventListener('click', () => goToStep(2));
-  document.getElementById('wizard-next-3')?.addEventListener('click', () => {
-    const name = document.getElementById('contact-name').value.trim();
-    const email = document.getElementById('contact-email').value.trim();
-    const phone = document.getElementById('contact-phone').value.trim();
-    if (!name || !email || !phone) {
-      shakeElement(document.getElementById('wizard-step-3').querySelector('.wizard-form-grid'));
-      return;
-    }
-    calculateQuote();
-    goToStep(4);
-  });
-
-  document.getElementById('wizard-restart')?.addEventListener('click', () => {
-    // Reset all form fields
-    document.querySelectorAll('.quote-wizard input, .quote-wizard select, .quote-wizard textarea').forEach(el => {
-      if (el.type === 'number' || el.type === 'text' || el.type === 'email' || el.type === 'tel') el.value = '';
-      else if (el.tagName === 'SELECT') el.selectedIndex = 0;
-      else if (el.tagName === 'TEXTAREA') el.value = '';
+    // Step navigation buttons
+    document.getElementById('wizard-next-1')?.addEventListener('click', () => {
+      const origin = document.getElementById('origin-city').value;
+      const dest = document.getElementById('dest-city').value;
+      if (!origin || !dest) {
+        shakeElement(document.getElementById('wizard-step-1').querySelector('.wizard-form-grid'));
+        return;
+      }
+      if (origin === dest) {
+        shakeElement(document.getElementById('dest-city'));
+        return;
+      }
+      goToStep(2);
     });
-    goToStep(1);
-  });
 
-  function calculateQuote() {
-    const origin = document.getElementById('origin-city').value;
-    const dest = document.getElementById('dest-city').value;
-    const weight = parseFloat(document.getElementById('cargo-weight').value) || 100;
-    const freightType = document.getElementById('freight-type').value || 'ftl';
-    const cargoType = document.getElementById('cargo-type').value || 'general';
-    const insurance = document.getElementById('insurance').value || 'no';
+    document.getElementById('wizard-prev-2')?.addEventListener('click', () => goToStep(1));
+    document.getElementById('wizard-next-2')?.addEventListener('click', () => {
+      const weight = document.getElementById('cargo-weight').value;
+      const freight = document.getElementById('freight-type').value;
+      const cargo = document.getElementById('cargo-type').value;
+      if (!weight || !freight || !cargo) {
+        shakeElement(document.getElementById('wizard-step-2').querySelector('.wizard-form-grid'));
+        return;
+      }
+      goToStep(3);
+    });
 
-    const dist = distances[origin]?.[dest] || 500;
-    const ratePerKm = freightRates[freightType] || 28;
-    const cargoMul = cargoMultipliers[cargoType] || 1;
-    const insRate = insuranceRates[insurance] || 0;
+    document.getElementById('wizard-prev-3')?.addEventListener('click', () => goToStep(2));
+    document.getElementById('wizard-next-3')?.addEventListener('click', () => {
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const phone = document.getElementById('contact-phone').value.trim();
+      if (!name || !email || !phone) {
+        shakeElement(document.getElementById('wizard-step-3').querySelector('.wizard-form-grid'));
+        return;
+      }
+      calculateQuote();
+      goToStep(4);
+    });
 
-    const baseFright = Math.round(dist * ratePerKm * (weight / 1000) * cargoMul);
-    const fuel = Math.round(baseFright * 0.15);
-    const insuranceCost = Math.round(baseFright * (insRate / 100) * weight);
-    const total = baseFright + fuel + insuranceCost;
+    document.getElementById('wizard-restart')?.addEventListener('click', () => {
+      // Reset all form fields
+      document.querySelectorAll('.quote-wizard input, .quote-wizard select, .quote-wizard textarea').forEach(el => {
+        if (el.type === 'number' || el.type === 'text' || el.type === 'email' || el.type === 'tel') el.value = '';
+        else if (el.tagName === 'SELECT') el.selectedIndex = 0;
+        else if (el.tagName === 'TEXTAREA') el.value = '';
+      });
+      goToStep(1);
+    });
 
-    // Animate the total
-    animateQuoteAmount(total);
+    function calculateQuote() {
+      const originSel = document.getElementById('origin-city');
+      const destSel = document.getElementById('dest-city');
+      const origin = originSel.value;
+      const dest = destSel.value;
+      const originText = originSel.options[originSel.selectedIndex].text;
+      const destText = destSel.options[destSel.selectedIndex].text;
 
-    document.getElementById('qb-freight').textContent = '₹' + baseFright.toLocaleString('en-IN');
-    document.getElementById('qb-fuel').textContent = '₹' + fuel.toLocaleString('en-IN');
-    document.getElementById('qb-insurance').textContent = insuranceCost > 0 ? '₹' + insuranceCost.toLocaleString('en-IN') : 'N/A';
-  }
+      const weightVal = document.getElementById('cargo-weight').value;
+      const weight = parseFloat(weightVal) || 100;
 
-  function animateQuoteAmount(target) {
-    const el = document.getElementById('quote-amount');
-    const duration = 1500;
-    const start = performance.now();
+      const freightSel = document.getElementById('freight-type');
+      const freightType = freightSel.value || 'ftl';
+      const freightText = freightSel.options[freightSel.selectedIndex].text;
 
-    function tick(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(eased * target);
-      el.textContent = current.toLocaleString('en-IN');
-      if (progress < 1) requestAnimationFrame(tick);
+      const cargoSel = document.getElementById('cargo-type');
+      const cargoType = cargoSel.value || 'general';
+      const cargoText = cargoSel.options[cargoSel.selectedIndex].text;
+
+      const insurance = document.getElementById('insurance').value || 'no';
+
+      const dist = distances[origin]?.[dest] || 500;
+      const ratePerKm = freightRates[freightType] || 28;
+      const cargoMul = cargoMultipliers[cargoType] || 1;
+      const insRate = insuranceRates[insurance] || 0;
+
+      const baseFright = Math.round(dist * ratePerKm * (weight / 1000) * cargoMul);
+      const fuel = Math.round(baseFright * 0.15);
+      const insuranceCost = Math.round(baseFright * (insRate / 100) * weight);
+      const total = baseFright + fuel + insuranceCost;
+
+      // Animate the total
+      animateQuoteAmount(total);
+
+      document.getElementById('qb-freight').textContent = '₹' + baseFright.toLocaleString('en-IN');
+      document.getElementById('qb-fuel').textContent = '₹' + fuel.toLocaleString('en-IN');
+      document.getElementById('qb-insurance').textContent = insuranceCost > 0 ? '₹' + insuranceCost.toLocaleString('en-IN') : 'N/A';
+
+      // Update Summary Details
+      const contactName = document.getElementById('contact-name').value;
+      const contactEmail = document.getElementById('contact-email').value;
+      const contactPhone = document.getElementById('contact-phone').value;
+      const companyVal = document.getElementById('company-name').value || '';
+
+      const qsRoute = document.getElementById('qs-route');
+      const qsWeight = document.getElementById('qs-weight');
+      const qsFreight = document.getElementById('qs-freight');
+      const qsCargo = document.getElementById('qs-cargo');
+      const qsContact = document.getElementById('qs-contact');
+
+      if (qsRoute) qsRoute.textContent = `${originText} to ${destText}`;
+      if (qsWeight) qsWeight.textContent = `${weightVal} kg`;
+      if (qsFreight) qsFreight.textContent = freightText;
+      if (qsCargo) qsCargo.textContent = cargoText;
+      if (qsContact) qsContact.textContent = `${contactName} (${contactPhone})`;
+
+      // Link to contact page with query parameters
+      const bookBtn = document.getElementById('wizard-book-btn');
+      if (bookBtn) {
+        const messageText = `Hello, I would like to book a shipment with the following quote details:\n- Route: ${originText} to ${destText}\n- Cargo: ${cargoText} (${weightVal} kg)\n- Freight Type: ${freightText}\n- Base Freight: ₹${baseFright.toLocaleString('en-IN')}\n- Fuel Surcharge: ₹${fuel.toLocaleString('en-IN')}\n- Insurance Cost: ${insuranceCost > 0 ? '₹' + insuranceCost.toLocaleString('en-IN') : 'N/A'}\n- Total Estimated Price: ₹${total.toLocaleString('en-IN')}`;
+
+        const queryParams = new URLSearchParams({
+          name: contactName,
+          email: contactEmail,
+          phone: contactPhone,
+          company: companyVal,
+          subject: 'demo',
+          message: messageText
+        });
+        bookBtn.href = `contact.html?${queryParams.toString()}`;
+      }
     }
-    requestAnimationFrame(tick);
-  }
 
-  function shakeElement(el) {
-    el.style.animation = 'none';
-    el.offsetHeight; // trigger reflow
-    el.style.animation = 'shake 0.5s ease';
-    setTimeout(() => el.style.animation = '', 500);
-  }
+    function animateQuoteAmount(target) {
+      const el = document.getElementById('quote-amount');
+      const duration = 1500;
+      const start = performance.now();
 
-  // Add shake animation dynamically
-  const shakeStyle = document.createElement('style');
-  shakeStyle.textContent = `
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-8px); }
-      50% { transform: translateX(8px); }
-      75% { transform: translateX(-4px); }
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(eased * target);
+        el.textContent = current.toLocaleString('en-IN');
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
     }
-  `;
-  document.head.appendChild(shakeStyle);
+
+    function shakeElement(el) {
+      el.style.animation = 'none';
+      el.offsetHeight; // trigger reflow
+      el.style.animation = 'shake 0.5s ease';
+      setTimeout(() => el.style.animation = '', 500);
+    }
+
+    // Add shake animation dynamically
+    const shakeStyle = document.createElement('style');
+    shakeStyle.textContent = `
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(-8px); }
+        50% { transform: translateX(8px); }
+        75% { transform: translateX(-4px); }
+      }
+    `;
+    document.head.appendChild(shakeStyle);
+  }
 
   // ============================================
   // 9. ROI CALCULATOR
@@ -740,11 +789,41 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = document.querySelector(targetId);
       if (target) {
         const offset = 80;
-        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        let top = target.getBoundingClientRect().top + window.scrollY - offset;
+        
+        // Adjust for yard simulator pin spacing if scrolling past it from above
+        const yardSim = document.querySelector('#yard-sim');
+        if (yardSim) {
+          const yardSimTop = yardSim.getBoundingClientRect().top + window.scrollY;
+          if (window.scrollY < yardSimTop && top > yardSimTop) {
+            top += window.innerHeight * 2;
+          }
+        }
+        
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });
   });
+
+  // Handle hash scroll on page load if scrolling past yard-sim
+  if (window.location.hash) {
+    // Wait for GSAP ScrollTrigger to initialize
+    setTimeout(() => {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        const offset = 80;
+        let top = target.getBoundingClientRect().top + window.scrollY - offset;
+        const yardSim = document.querySelector('#yard-sim');
+        if (yardSim) {
+          const yardSimTop = yardSim.getBoundingClientRect().top + window.scrollY;
+          if (window.scrollY < yardSimTop && top > yardSimTop) {
+            top += window.innerHeight * 2;
+          }
+        }
+        window.scrollTo({ top, behavior: 'auto' });
+      }
+    }, 150);
+  }
 
   // ============================================
   // 12. CHART BAR ANIMATION on scroll
