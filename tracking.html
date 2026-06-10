@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LogiBrisk — Live Shipment Tracking | Real-Time Logistics Tracker</title>
+  <meta name="description" content="Track your shipments in real-time with LogiBrisk's intelligent logistics tracking system. Enter your tracking ID for instant updates." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <style>
+    /* ===== TRACKING PAGE SPECIFIC STYLES ===== */
+    .tracking-page-hero {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(160deg, #F8FAFC 0%, #E0ECFF 40%, #F0F4FA 100%);
+      padding: 120px 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tracking-page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(25,118,210,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .tracking-page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(66,165,245,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .tracking-page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .tracking-page-header .section-label {
+      margin-bottom: 1rem;
+    }
+
+    .tracking-page-header h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #0F172A;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .tracking-page-header p {
+      font-size: 1.1rem;
+      color: #64748B;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* Search Card */
+    .tracking-search-card {
+      background: white;
+      border: 1px solid #E3F2FD;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+      max-width: 700px;
+      margin: 0 auto 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .tracking-search-card .tracking-input-group {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .tracking-search-card .tracking-input-group input {
+      flex: 1;
+      padding: 16px 20px;
+      border: 2px solid #E3F2FD;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: var(--font-body);
+      color: #0F172A;
+      background: #F8FAFC;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      outline: none;
+    }
+
+    .tracking-search-card .tracking-input-group input:focus {
+      border-color: #1976D2;
+      box-shadow: 0 0 0 4px rgba(25,118,210,0.1);
+      background: white;
+    }
+
+    .tracking-search-card .tracking-input-group input::placeholder {
+      color: #94A3B8;
+    }
+
+    .tracking-search-card .tracking-input-group .btn {
+      padding: 16px 28px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .tracking-search-card .sample-codes {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tracking-search-card .sample-codes span {
+      font-size: 0.85rem;
+      color: #64748B;
+      font-weight: 600;
+    }
+
+    .tracking-search-card .sample-code {
+      padding: 6px 14px;
+      border: 1.5px solid #E3F2FD;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1976D2;
+      background: #F0F7FF;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+
+    .tracking-search-card .sample-code:hover {
+      background: #1976D2;
+      color: white;
+      border-color: #1976D2;
+      transform: translateY(-1px);
+    }
+
+    /* Results Grid */
+    .tracking-results-grid {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 2rem auto 0;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .tracking-results-grid.visible {
+      display: grid;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Shipment Info Card */
+    .tracking-info-card {
+      background: white;
+      border: 1px solid #E3F2FD;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    }
+
+    .tracking-info-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .tracking-info-card-header .tracking-id-label {
+      font-size: 0.8rem;
+      color: #94A3B8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    .tracking-info-card-header .tracking-id-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0F172A;
+      font-family: var(--font-heading);
+    }
+
+    .status-pill {
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .status-pill.in-transit {
+      background: rgba(25,118,210,0.1);
+      color: #1976D2;
+    }
+
+    .status-pill.delivered {
+      background: rgba(22,163,74,0.1);
+      color: #16A34A;
+    }
+
+    .status-pill.processing {
+      background: rgba(245,158,11,0.1);
+      color: #F59E0B;
+    }
+
+    /* Route Progress Bar */
+    .route-progress-section {
+      margin-bottom: 2rem;
+    }
+
+    .route-progress-bar {
+      position: relative;
+      height: 6px;
+      background: #E3F2FD;
+      border-radius: 999px;
+      margin: 1.5rem 0;
+    }
+
+    .route-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #1976D2, #42A5F5);
+      border-radius: 999px;
+      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .route-progress-fill::after {
+      content: '';
+      position: absolute;
+      right: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      background: #1976D2;
+      border: 3px solid white;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(25,118,210,0.4);
+    }
+
+    .route-stops {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .route-stop {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #94A3B8;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .route-stop.active {
+      color: #1976D2;
+    }
+
+    .route-stop.completed {
+      color: #16A34A;
+    }
+
+    /* Shipment Detail Rows */
+    .detail-rows {
+      display: grid;
+      gap: 12px;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: #F8FAFC;
+      border-radius: 10px;
+    }
+
+    .detail-row-label {
+      font-size: 0.85rem;
+      color: #64748B;
+      font-weight: 500;
+    }
+
+    .detail-row-value {
+      font-size: 0.9rem;
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    /* Timeline Card */
+    .tracking-timeline-card {
+      background: white;
+      border: 1px solid #E3F2FD;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+    }
+
+    .timeline-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .timeline-card-header svg {
+      width: 22px;
+      height: 22px;
+      color: #1976D2;
+    }
+
+    .timeline-card-header span {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0F172A;
+    }
+
+    .tracking-timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .tracking-timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: #E3F2FD;
+    }
+
+    .timeline-step {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 16px;
+      opacity: 0;
+      transform: translateX(-10px);
+      animation: slideInStep 0.5s ease forwards;
+    }
+
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-step:nth-child(1) { animation-delay: 0.2s; }
+    .timeline-step:nth-child(2) { animation-delay: 0.4s; }
+    .timeline-step:nth-child(3) { animation-delay: 0.6s; }
+    .timeline-step:nth-child(4) { animation-delay: 0.8s; }
+
+    @keyframes slideInStep {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .timeline-step-dot {
+      position: absolute;
+      left: -24px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid #E3F2FD;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-step.completed .timeline-step-dot {
+      background: #16A34A;
+      border-color: #16A34A;
+      box-shadow: 0 0 0 4px rgba(22,163,74,0.15);
+    }
+
+    .timeline-step.current .timeline-step-dot {
+      background: #1976D2;
+      border-color: #1976D2;
+      box-shadow: 0 0 0 4px rgba(25,118,210,0.15);
+      animation: pulseBlue 2s ease infinite;
+    }
+
+    @keyframes pulseBlue {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(25,118,210,0.15); }
+      50% { box-shadow: 0 0 0 8px rgba(25,118,210,0.08); }
+    }
+
+    .timeline-step-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 4px;
+    }
+
+    .timeline-step-desc {
+      font-size: 0.82rem;
+      color: #64748B;
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+
+    .timeline-step-time {
+      font-size: 0.75rem;
+      color: #94A3B8;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .tracking-results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tracking-search-card .tracking-input-group {
+        flex-direction: column;
+      }
+
+      .tracking-page-hero {
+        padding: 100px 0 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" id="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 120 90" width="28" height="21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 10 L8 70 L42 70 L42 62 L16 62 L16 10 Z" fill="white"/>
+            <path d="M38 10 L38 70 L62 70 C74 70 82 63 82 54 C82 48 79 43 74 40 C78 37 80 32 80 27 C80 17 73 10 62 10 Z M46 18 L61 18 C68 18 72 22 72 27 C72 33 68 36 61 36 L46 36 Z M46 44 L63 44 C70 44 74 48 74 54 C74 61 70 62 63 62 L46 62 Z" fill="white"/>
+            <line x1="88" y1="22" x2="115" y2="22" stroke="white" stroke-width="5" stroke-linecap="round"/>
+            <line x1="88" y1="36" x2="118" y2="36" stroke="white" stroke-width="5" stroke-linecap="round"/>
+            <line x1="88" y1="50" x2="115" y2="50" stroke="white" stroke-width="5" stroke-linecap="round"/>
+            <line x1="88" y1="64" x2="112" y2="64" stroke="white" stroke-width="5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span>Logi<span>Brisk</span></span>
+          <span class="logo-tagline">Connect Globally</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html#features">Features</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#fleet">Fleet</a>
+        <a href="tracking.html" class="active">Tracking</a>
+        <a href="index.html#quote">Get Quote</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="index.html#quote" class="btn btn-primary btn-sm" id="header-cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Schedule Demo
+        </a>
+        <div class="mobile-toggle" id="mobile-toggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="tracking-page-hero">
+      <div class="container">
+        <!-- Header -->
+        <div class="tracking-page-header">
+          <span class="section-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            Live Shipment Tracking
+          </span>
+          <h1>Track Your Shipment <span class="text-gradient">In Real-Time</span></h1>
+          <p>Monitor deliveries and vehicle movement with accurate live updates. Enter a tracking number below to see the interactive route simulation.</p>
+        </div>
+
+        <!-- Search Card -->
+        <div class="tracking-search-card">
+          <div class="tracking-input-group">
+            <input type="text" id="tracking-input" placeholder="Enter tracking number (e.g. TRK-20841)" autocomplete="off" />
+            <button class="btn btn-primary" id="track-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              Track
+            </button>
+          </div>
+          <div class="sample-codes">
+            <span>Try:</span>
+            <button class="sample-code" data-code="TRK-20841">TRK-20841</button>
+            <button class="sample-code" data-code="TRK-55012">TRK-55012</button>
+            <button class="sample-code" data-code="TRK-88374">TRK-88374</button>
+            <button class="sample-code" data-code="TRK-31290">TRK-31290</button>
+          </div>
+        </div>
+
+        <!-- Results Grid (hidden until search) -->
+        <div class="tracking-results-grid" id="tracking-results">
+          <!-- Left: Shipment Info Card -->
+          <div class="tracking-info-card">
+            <div class="tracking-info-card-header">
+              <div>
+                <div class="tracking-id-label">Tracking ID</div>
+                <div class="tracking-id-value" id="result-tracking-id">TRK-20841</div>
+              </div>
+              <span class="status-pill in-transit" id="result-status">In Transit</span>
+            </div>
+
+            <div class="route-progress-section">
+              <div class="route-progress-bar">
+                <div class="route-progress-fill" id="route-progress" style="width: 0%;"></div>
+              </div>
+              <div class="route-stops" id="route-stops">
+                <span class="route-stop completed">Surat</span>
+                <span class="route-stop completed">Navsari</span>
+                <span class="route-stop active">Mumbai Hub</span>
+                <span class="route-stop">Mumbai Central</span>
+              </div>
+            </div>
+
+            <div class="detail-rows" id="shipment-details">
+              <div class="detail-row">
+                <span class="detail-row-label">Origin</span>
+                <span class="detail-row-value" id="detail-origin">Surat Depot</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-row-label">Destination</span>
+                <span class="detail-row-value" id="detail-destination">Mumbai Central</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-row-label">Estimated Arrival</span>
+                <span class="detail-row-value" id="detail-eta">Today, 4:30 PM</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-row-label">Vehicle</span>
+                <span class="detail-row-value">GJ-05-TX-4421</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Timeline Card -->
+          <div class="tracking-timeline-card">
+            <div class="timeline-card-header">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Route Timeline</span>
+            </div>
+            <div class="tracking-timeline" id="route-timeline">
+              <div class="timeline-step completed">
+                <div class="timeline-step-dot"></div>
+                <div class="timeline-step-title">Order Picked Up</div>
+                <div class="timeline-step-desc">Surat Depot — Package collected</div>
+                <div class="timeline-step-time">9:14 AM, Today</div>
+              </div>
+              <div class="timeline-step completed">
+                <div class="timeline-step-dot"></div>
+                <div class="timeline-step-title">Cleared Surat Checkpoint</div>
+                <div class="timeline-step-desc">Security verified, cleared for transit</div>
+                <div class="timeline-step-time">10:42 AM, Today</div>
+              </div>
+              <div class="timeline-step current">
+                <div class="timeline-step-dot"></div>
+                <div class="timeline-step-title">En Route to Mumbai Hub</div>
+                <div class="timeline-step-desc">Vehicle ID: GJ-05-TX-4421</div>
+                <div class="timeline-step-time">In Progress</div>
+              </div>
+              <div class="timeline-step">
+                <div class="timeline-step-dot"></div>
+                <div class="timeline-step-title">Delivery to Receiver</div>
+                <div class="timeline-step-desc">Mumbai Central — Estimated</div>
+                <div class="timeline-step-time">ETA: 4:30 PM</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 LogiBrisk. All rights reserved. | Surat, Gujarat, India</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="mailto:sales@logibrisk.com">sales@logibrisk.com</a>
+          <a href="tel:+919824479555">+91 98244 79555</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== TRACKING PAGE LOGIC =====
+    const trackingData = {
+      'TRK-20841': {
+        status: 'In Transit', statusClass: 'in-transit',
+        origin: 'Surat Depot', destination: 'Mumbai Central',
+        eta: 'Today, 4:30 PM', progress: 65, activePoint: 2,
+        points: ['Surat', 'Navsari', 'Mumbai Hub', 'Mumbai Central'],
+        timeline: [
+          { title: 'Order Picked Up', desc: 'Surat Depot — Package collected', time: '9:14 AM, Today', status: 'completed' },
+          { title: 'Cleared Surat Checkpoint', desc: 'Security verified, cleared for transit', time: '10:42 AM, Today', status: 'completed' },
+          { title: 'En Route to Mumbai Hub', desc: 'Vehicle ID: GJ-05-TX-4421', time: 'In Progress', status: 'current' },
+          { title: 'Delivery to Receiver', desc: 'Mumbai Central — Estimated', time: 'ETA: 4:30 PM', status: '' }
+        ]
+      },
+      'TRK-55012': {
+        status: 'Delivered', statusClass: 'delivered',
+        origin: 'Ahmedabad Depot', destination: 'Rajkot Hub',
+        eta: 'Delivered', progress: 100, activePoint: 3,
+        points: ['Ahmedabad', 'Surendranagar', 'Rajkot Hub', 'Rajkot City'],
+        timeline: [
+          { title: 'Order Picked Up', desc: 'Ahmedabad Depot', time: '7:00 AM, Yesterday', status: 'completed' },
+          { title: 'Cleared Checkpoint', desc: 'Surendranagar toll gate cleared', time: '9:30 AM, Yesterday', status: 'completed' },
+          { title: 'Arrived at Rajkot Hub', desc: 'Sorting completed', time: '12:15 PM, Yesterday', status: 'completed' },
+          { title: 'Delivered Successfully', desc: 'Rajkot City — Signed by receiver', time: '2:45 PM, Yesterday', status: 'completed' }
+        ]
+      },
+      'TRK-88374': {
+        status: 'Processing', statusClass: 'processing',
+        origin: 'Mumbai Port', destination: 'Pune Central',
+        eta: 'Tomorrow, 10:00 AM', progress: 20, activePoint: 0,
+        points: ['Mumbai Port', 'Lonavala', 'Pune Hub', 'Pune Central'],
+        timeline: [
+          { title: 'Order Received', desc: 'Mumbai Port — Customs cleared', time: '3:00 PM, Today', status: 'completed' },
+          { title: 'Awaiting Dispatch', desc: 'Vehicle being assigned', time: 'Pending', status: 'current' },
+          { title: 'En Route to Pune Hub', desc: 'Estimated departure: 6 PM', time: 'Scheduled', status: '' },
+          { title: 'Delivery to Receiver', desc: 'Pune Central', time: 'Tomorrow', status: '' }
+        ]
+      },
+      'TRK-31290': {
+        status: 'In Transit', statusClass: 'in-transit',
+        origin: 'Delhi NCR', destination: 'Jaipur City',
+        eta: 'Today, 8:00 PM', progress: 45, activePoint: 1,
+        points: ['Delhi NCR', 'Gurgaon', 'Neemrana', 'Jaipur City'],
+        timeline: [
+          { title: 'Order Picked Up', desc: 'Delhi NCR Warehouse', time: '6:00 AM, Today', status: 'completed' },
+          { title: 'Gurgaon Checkpoint', desc: 'Highway toll cleared', time: '7:45 AM, Today', status: 'completed' },
+          { title: 'En Route to Neemrana', desc: 'Vehicle ID: RJ-14-GB-8821', time: 'In Progress', status: 'current' },
+          { title: 'Delivery to Jaipur City', desc: 'Estimated arrival', time: 'ETA: 8:00 PM', status: '' }
+        ]
+      }
+    };
+
+    function performTracking(code) {
+      const data = trackingData[code];
+      const resultsGrid = document.getElementById('tracking-results');
+
+      if (!data) {
+        resultsGrid.classList.remove('visible');
+        alert('Tracking ID not found. Try: TRK-20841, TRK-55012, TRK-88374, or TRK-31290');
+        return;
+      }
+
+      // Update info card
+      document.getElementById('result-tracking-id').textContent = code;
+      const statusEl = document.getElementById('result-status');
+      statusEl.textContent = data.status;
+      statusEl.className = 'status-pill ' + data.statusClass;
+
+      // Update progress bar
+      document.getElementById('route-progress').style.width = data.progress + '%';
+
+      // Update route stops
+      const stopsEl = document.getElementById('route-stops');
+      stopsEl.innerHTML = data.points.map((p, i) => {
+        let cls = '';
+        if (i < data.activePoint) cls = 'completed';
+        else if (i === data.activePoint) cls = 'active';
+        return `<span class="route-stop ${cls}">${p}</span>`;
+      }).join('');
+
+      // Update details
+      document.getElementById('detail-origin').textContent = data.origin;
+      document.getElementById('detail-destination').textContent = data.destination;
+      document.getElementById('detail-eta').textContent = data.eta;
+
+      // Update timeline
+      const timelineEl = document.getElementById('route-timeline');
+      timelineEl.innerHTML = data.timeline.map(step => `
+        <div class="timeline-step ${step.status}">
+          <div class="timeline-step-dot"></div>
+          <div class="timeline-step-title">${step.title}</div>
+          <div class="timeline-step-desc">${step.desc}</div>
+          <div class="timeline-step-time">${step.time}</div>
+        </div>
+      `).join('');
+
+      // Show results
+      resultsGrid.classList.add('visible');
+    }
+
+    // Track button
+    document.getElementById('track-btn').addEventListener('click', () => {
+      const code = document.getElementById('tracking-input').value.trim().toUpperCase();
+      if (code) performTracking(code);
+    });
+
+    // Enter key
+    document.getElementById('tracking-input').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const code = e.target.value.trim().toUpperCase();
+        if (code) performTracking(code);
+      }
+    });
+
+    // Sample code buttons
+    document.querySelectorAll('.sample-code').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const code = btn.dataset.code;
+        document.getElementById('tracking-input').value = code;
+        performTracking(code);
+      });
+    });
+
+    // Mobile toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        mobileToggle.classList.toggle('active');
+      });
+    }
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    });
+  </script>
+</body>
+</html>

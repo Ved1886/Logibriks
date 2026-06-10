@@ -130,12 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     gsap.set(simTruck, { left: 0, top: 0, xPercent: -50, yPercent: -50, rotation: 0 });
 
-    const getStageScrollDistance = () => {
-      const cardHeight = stageCards[0].offsetHeight;
-      const gap = parseFloat(getComputedStyle(stagesTrack).gap) || 24;
-      return (cardHeight + gap) * (stageCards.length - 1);
-    };
-
     const setActiveStage = (stage) => {
       stageCards.forEach((card) => {
         card.classList.toggle('active', card.dataset.stage === String(stage));
@@ -151,12 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const simTimeline = gsap.timeline({
       scrollTrigger: {
-        trigger: yardWorkspace,
+        trigger: '.yard-sim-wrapper',
         start: 'top top',
-        end: () => `+=${Math.round(window.innerHeight * 2.4)}`,
-        scrub: 1,
+        end: () => `+=${Math.round(window.innerHeight * 2)}`,
+        scrub: 1.2,
         pin: true,
-        anticipatePin: 1,
+        pinSpacing: true,
         invalidateOnRefresh: true,
         onUpdate: (self) => {
           const stage = self.progress < 0.34 ? 1 : self.progress < 0.67 ? 2 : 3;
@@ -224,15 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 0);
 
-    simTimeline.to(stagesTrack, {
-      y: () => -getStageScrollDistance(),
-      ease: 'none',
-      duration: totalDur
-    }, 0);
-
-    ScrollTrigger.addEventListener('refreshInit', () => {
-      gsap.set(stagesTrack, { clearProps: 'transform' });
-    });
+    // Cards crossfade in place automatically via the active class
   }
 
   // ============================================

@@ -186,7 +186,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section {
-  padding: var(--space-4xl) 0;
+  padding: var(--space-2xl) 0;
   position: relative;
 }
 
@@ -3076,7 +3076,22 @@ h1, h2, h3, h4, h5, h6 {
    ============================================ */
 .cta-banner {
   position: relative;
-  padding: var(--space-4xl) 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+  overflow: hidden;
+}
+
+.cta-banner .container {
+  background: linear-gradient(135deg, #F0F7FF, #E3F2FD, #F0F7FF);
+  border: 1px solid var(--navy-600);
+  border-radius: var(--radius-2xl);
+  padding: 5rem 3rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 2;
   overflow: hidden;
 }
 
@@ -3787,26 +3802,29 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--navy-800);
   border-top: 1px solid var(--navy-600);
   border-bottom: 1px solid var(--navy-600);
-  overflow: hidden;
   position: relative;
+  padding: 0 !important;
 }
 
 .yard-sim-wrapper {
   width: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 0;
 }
 
 .yard-sim-workspace {
-  --yard-panel-height: clamp(380px, calc(100vh - 280px), 460px);
+  --yard-panel-height: clamp(340px, calc(100vh - 220px), 420px);
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: clamp(24px, 4vw, 48px);
-  align-items: stretch;
+  align-items: center;
   position: relative;
-  margin-top: var(--space-3xl);
+  width: 100%;
   max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .yard-sim-visual-sticky {
@@ -4091,25 +4109,25 @@ h1, h2, h3, h4, h5, h6 {
 .wheel-2 { left: 5px; }
 .wheel-3 { left: 15px; }
 
-/* Stages Info Scrolling */
+/* Stages Info Stacking */
 .yard-sim-stages-wrapper {
   height: var(--yard-panel-height);
   min-height: 380px;
-  overflow: hidden;
   position: relative;
 }
 
 .yard-sim-scrolling-stages {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  will-change: transform;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .sim-stage-card {
-  height: var(--yard-panel-height);
-  min-height: 380px;
-  flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -4118,17 +4136,17 @@ h1, h2, h3, h4, h5, h6 {
   border: 1.5px solid var(--navy-600);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
-  opacity: 0.35;
-  transform: scale(0.97);
-  transition: opacity 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
-              transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
-              border-color 0.45s ease,
-              box-shadow 0.45s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease,
+              border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .sim-stage-card.active {
   opacity: 1;
-  transform: scale(1);
+  visibility: visible;
+  transform: translateY(0);
   border-color: var(--orange-500);
   box-shadow: var(--shadow-lg);
   background: var(--navy-700);
@@ -4206,8 +4224,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .sim-stage-card {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
     min-height: 320px;
     padding: var(--space-lg) var(--space-xl);
+    margin-bottom: 24px;
+  }
+
+  .yard-sim-scrolling-stages {
+    display: flex;
+    flex-direction: column;
   }
 
   .sim-stage-card p {

@@ -60,10 +60,10 @@
       </a>
 
       <nav class="nav-links" id="nav-links">
-        <a href="#tracking">Tracking</a>
         <a href="#features">Features</a>
         <a href="#services">Services</a>
         <a href="#fleet">Fleet</a>
+        <a href="tracking.html">Tracking</a>
         <a href="#quote">Get Quote</a>
         <a href="#faq">FAQ</a>
         <a href="contact.html">Contact</a>
@@ -293,141 +293,21 @@
       </div>
     </section>
 
-    <!-- ===== LIVE TRACKING ===== -->
-    <section class="tracking-section section" id="tracking">
-      <div class="bg-grid"></div>
-      <div class="container">
-        <div class="tracking-grid">
-          <div class="tracking-left reveal">
-            <span class="section-label">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-              Live Tracking
-            </span>
-            <h2 class="section-title">Track Your Shipment <span class="text-gradient">In Real-Time</span></h2>
-            <p class="section-subtitle">Monitor deliveries and vehicle movement with accurate live updates. Enter a tracking number below to see the interactive route simulation.</p>
-
-            <div class="tracking-input-group">
-              <input type="text" id="tracking-input" placeholder="Enter tracking number (e.g. TRK-20841)" autocomplete="off" />
-              <button class="btn btn-primary" id="track-btn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                Track
-              </button>
-            </div>
-
-            <div class="sample-codes">
-              <span>Try:</span>
-              <button class="sample-code" data-code="TRK-20841">TRK-20841</button>
-              <button class="sample-code" data-code="TRK-55012">TRK-55012</button>
-              <button class="sample-code" data-code="TRK-88374">TRK-88374</button>
-              <button class="sample-code" data-code="TRK-31290">TRK-31290</button>
-            </div>
-
-            <!-- Tracking Result -->
-            <div class="tracking-result" id="tracking-result">
-              <div class="tracking-result-card">
-                <div class="tracking-header">
-                  <div>
-                    <div class="tracking-id-label">Tracking ID</div>
-                    <div class="tracking-id-value" id="result-tracking-id">TRK-20841</div>
-                  </div>
-                  <span class="tracking-status-badge in-transit" id="result-status">In Transit</span>
-                </div>
-
-                <div class="route-visualizer">
-                  <div class="route-map-container">
-                    <div class="route-line">
-                      <div class="route-line-progress" id="route-progress" style="width: 0%;"></div>
-                      <div class="route-point">
-                        <div class="route-dot completed" id="route-dot-0"></div>
-                        <span class="route-label active" id="route-label-0">Origin</span>
-                      </div>
-                      <div class="route-point">
-                        <div class="route-dot" id="route-dot-1"></div>
-                        <span class="route-label" id="route-label-1">Checkpoint 1</span>
-                      </div>
-                      <div class="route-point">
-                        <div class="route-dot" id="route-dot-2"></div>
-                        <span class="route-label" id="route-label-2">Hub</span>
-                      </div>
-                      <div class="route-point">
-                        <div class="route-dot" id="route-dot-3"></div>
-                        <span class="route-label" id="route-label-3">Destination</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="shipment-details" id="shipment-details">
-                  <div class="shipment-detail-item">
-                    <div class="shipment-detail-label">Origin</div>
-                    <div class="shipment-detail-value" id="detail-origin">Surat Depot</div>
-                  </div>
-                  <div class="shipment-detail-item">
-                    <div class="shipment-detail-label">Destination</div>
-                    <div class="shipment-detail-value" id="detail-destination">Mumbai Hub</div>
-                  </div>
-                  <div class="shipment-detail-item">
-                    <div class="shipment-detail-label">ETA</div>
-                    <div class="shipment-detail-value" id="detail-eta">Today, 4:30 PM</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Timeline -->
-          <div class="tracking-visual reveal">
-            <div class="tracking-visual-header">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span>Route Timeline</span>
-            </div>
-            <div class="route-timeline" id="route-timeline">
-              <div class="timeline-item completed">
-                <div class="timeline-dot"></div>
-                <div class="timeline-title">Order Picked Up</div>
-                <div class="timeline-desc">Surat Depot — Package collected</div>
-                <div class="timeline-time">9:14 AM, Today</div>
-              </div>
-              <div class="timeline-item completed">
-                <div class="timeline-dot"></div>
-                <div class="timeline-title">Cleared Surat Checkpoint</div>
-                <div class="timeline-desc">Security verified, cleared for transit</div>
-                <div class="timeline-time">10:42 AM, Today</div>
-              </div>
-              <div class="timeline-item current">
-                <div class="timeline-dot"></div>
-                <div class="timeline-title">En Route to Mumbai Hub</div>
-                <div class="timeline-desc">Vehicle ID: GJ-05-TX-4421</div>
-                <div class="timeline-time">In Progress</div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-title">Delivery to Receiver</div>
-                <div class="timeline-desc">Mumbai Central — Estimated</div>
-                <div class="timeline-time">ETA: 4:30 PM</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ===== YARD OPERATIONS SIMULATOR ===== -->
     <section class="yard-sim-section section" id="yard-sim">
       <div class="bg-grid"></div>
-      <div class="container">
-        <div class="text-center reveal">
-          <span class="section-label">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
-            Automated Yard Operating System
-          </span>
-          <h2 class="section-title">Cinematic Yard &amp; <span class="text-gradient">Gate Intelligence</span></h2>
-          <p class="section-subtitle">Scroll down to see the real-time automated workflow of our Yard Operating System scrubbed frame-by-frame.</p>
-        </div>
-      </div>
 
       <div class="yard-sim-wrapper">
         <div class="container">
+          <div class="text-center reveal" style="margin-bottom: 0.5rem;">
+            <span class="section-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+              Automated Yard Operating System
+            </span>
+            <h2 class="section-title">Cinematic Yard &amp; <span class="text-gradient">Gate Intelligence</span></h2>
+            <p class="section-subtitle" style="display:none;">Scroll down to see the real-time automated workflow of our Yard Operating System scrubbed frame-by-frame.</p>
+          </div>
           <div class="yard-sim-workspace">
           <!-- Left: Sticky visual container -->
           <div class="yard-sim-visual-sticky">
@@ -1489,40 +1369,6 @@
 
 
 
-    <!-- ===== FEATURES SECTION (MODERN) ===== -->
-    <section class="section" id="features-modern" style="padding: 6rem 0; background: #FFFFFF;">
-      <div class="container">
-        <div class="section-title fade-scroll">
-          Powerful Features
-        </div>
-
-        <div class="stagger-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-          <div class="modern-card stagger-item">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">📊</div>
-            <h3 style="color: var(--gray-600); font-size: 1.3rem; margin-bottom: 0.8rem;">Real-Time Analytics</h3>
-            <p style="color: var(--gray-300); font-size: 0.95rem; line-height: 1.6;">Track and monitor your entire fleet with real-time dashboards and instant alerts.</p>
-          </div>
-
-          <div class="modern-card stagger-item">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🚀</div>
-            <h3 style="color: var(--gray-600); font-size: 1.3rem; margin-bottom: 0.8rem;">Intelligent Routing</h3>
-            <p style="color: var(--gray-300); font-size: 0.95rem; line-height: 1.6;">AI-powered route optimization that saves fuel and reduces delivery times.</p>
-          </div>
-
-          <div class="modern-card stagger-item">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔐</div>
-            <h3 style="color: var(--gray-600); font-size: 1.3rem; margin-bottom: 0.8rem;">Enterprise Security</h3>
-            <p style="color: var(--gray-300); font-size: 0.95rem; line-height: 1.6;">Bank-grade encryption and compliance with ISO and international standards.</p>
-          </div>
-
-          <div class="modern-card stagger-item">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
-            <h3 style="color: var(--gray-600); font-size: 1.3rem; margin-bottom: 0.8rem;">Automation Engine</h3>
-            <p style="color: var(--gray-300); font-size: 0.95rem; line-height: 1.6;">Automate workflows, reduce manual work, and increase efficiency by 40%.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
   </main>
 
