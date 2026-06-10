@@ -2851,12 +2851,55 @@ h1, h2, h3, h4, h5, h6 {
   height: 32px;
 }
 
+.preloader-progress-container {
+  position: relative !important;
+  width: 220px !important;
+  height: 32px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+.preloader-truck-container {
+  position: absolute !important;
+  bottom: 1px !important;
+  left: 0% !important;
+  transform: translateX(-50%) !important;
+  animation: driveTruck 1.8s ease-out forwards !important;
+  width: 55px !important;
+  height: 25px !important;
+  pointer-events: none !important;
+}
+
+.preloader-truck {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.wheel-1 { transform-origin: 22px 33px !important; animation: wheelSpin 0.4s linear infinite !important; }
+.wheel-2 { transform-origin: 52px 33px !important; animation: wheelSpin 0.4s linear infinite !important; }
+.wheel-3 { transform-origin: 74px 33px !important; animation: wheelSpin 0.4s linear infinite !important; }
+
+@keyframes wheelSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes driveTruck {
+  0% { left: 0%; }
+  50% { left: 60%; }
+  100% { left: 100%; }
+}
+
 .preloader-bar {
   width: 220px;
   height: 3px;
   background: rgba(255,255,255,0.08);
   border-radius: 3px;
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .preloader-bar-fill {
