@@ -1,0 +1,427 @@
+/* ============================================
+   CREATIVE SCROLL ANIMATIONS
+   Terminal Industries Style
+   ============================================ */
+
+/* --- Zoom Headline Animation --- */
+.zoom-headline {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  opacity: 1;
+  transform: scale(0.9);
+  will-change: transform, opacity;
+}
+
+.zoom-headline.animate {
+  animation: zoomHeadline 1.2s ease-out forwards;
+}
+
+@keyframes zoomHeadline {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* --- Hide/Show Container --- */
+.scroll-container {
+  position: relative;
+  height: auto;
+  overflow: hidden;
+}
+
+.scroll-container.hide {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+}
+
+.scroll-container.show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease-in, visibility 0.6s ease-in;
+}
+
+/* --- Slot Machine Counter Styles --- */
+.counter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  font-weight: 800;
+  font-size: inherit;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+.slot-digit {
+  display: inline-block;
+  position: relative;
+  height: 1.2em;
+  overflow: hidden;
+  margin: 0 -2px;
+}
+
+.digit-strip {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+.digit-strip span {
+  flex: 0 0 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slot-separator {
+  display: inline-block;
+  margin: 0 4px;
+}
+
+/* --- Stagger Animation --- */
+@keyframes staggerIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-item {
+  animation: staggerIn 0.6s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* --- Floating Elements --- */
+.float-up {
+  animation: floatUp 3s ease-in-out infinite;
+}
+
+@keyframes floatUp {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* --- Glow Pulse --- */
+.glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(25, 118, 210, 0.15));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(25, 118, 210, 0.25));
+  }
+}
+
+/* --- Reveal Animation --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Scroll Progress Bar --- */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1976D2, #42A5F5);
+  z-index: 999;
+  width: 0%;
+  transition: width 0.1s ease-out;
+}
+
+/* --- Section Entrance Animation --- */
+.section-title {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: var(--space-2xl);
+  position: relative;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #1976D2;
+  border-radius: 2px;
+}
+
+/* --- Parallax Scroll Effect --- */
+.parallax-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+  z-index: 1;
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Text Gradient Animation --- */
+.text-gradient {
+  background: linear-gradient(135deg, var(--orange-500), var(--violet-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background: linear-gradient(135deg, var(--orange-500), var(--violet-600));
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+  50% {
+    background: linear-gradient(45deg, var(--violet-600), var(--orange-500));
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+/* --- Card Hover Effect --- */
+.card-hover {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.10);
+}
+
+/* --- Pulse Animation --- */
+.pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--success);
+  border-radius: 50%;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* --- Timeline Pulse Animation --- */
+@keyframes pulse-timeline {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(25, 118, 210, 0.5), 0 0 40px rgba(25, 118, 210, 0.25), inset 0 0 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(25, 118, 210, 0.7), 0 0 60px rgba(25, 118, 210, 0.35), inset 0 0 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.08);
+  }
+}
+
+/* --- Scribble Animation --- */
+@keyframes scribble {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.scribble-path {
+  stroke-dasharray: 1000;
+  animation: scribble 2s ease-in-out forwards;
+}
+
+/* --- Section Transition --- */
+.section-transition {
+  position: relative;
+  padding: var(--space-4xl) 0;
+}
+
+.section-transition::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--orange-500), transparent);
+}
+
+.section-transition::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--orange-500), transparent);
+}
+
+/* --- Video Container Hide/Show --- */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  will-change: opacity;
+}
+
+.video-container.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.video-container.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Number Counter Wrapper --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-2xl);
+  margin: var(--space-2xl) 0;
+}
+
+.stat-card {
+  text-align: center;
+  padding: var(--space-2xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease-out;
+}
+
+.stat-card:hover {
+  border-color: var(--orange-500);
+  background: #FFFFFF;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.10);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--orange-500), var(--violet-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-sm);
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: var(--gray-300);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- Modern Card Design --- */
+.modern-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(10px);
+  padding: var(--space-2xl);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modern-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--orange-500), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.modern-card:hover {
+  border-color: var(--orange-500);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.08);
+}
+
+.modern-card:hover::before {
+  opacity: 1;
+}
+
+/* --- Fade in on Scroll --- */
+.fade-scroll {
+  opacity: 0;
+  will-change: opacity;
+}
+
+.fade-scroll.active {
+  opacity: 1;
+}
+
+/* --- Scale Up on Scroll --- */
+.scale-scroll {
+  transform: scale(0.8);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.scale-scroll.active {
+  transform: scale(1);
+  opacity: 1;
+}
