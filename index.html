@@ -424,8 +424,11 @@
           <h2 class="section-title">Cinematic Yard &amp; <span class="text-gradient">Gate Intelligence</span></h2>
           <p class="section-subtitle">Scroll down to see the real-time automated workflow of our Yard Operating System scrubbed frame-by-frame.</p>
         </div>
+      </div>
 
-        <div class="yard-sim-workspace">
+      <div class="yard-sim-wrapper">
+        <div class="container">
+          <div class="yard-sim-workspace">
           <!-- Left: Sticky visual container -->
           <div class="yard-sim-visual-sticky">
             <div class="yard-sim-stage-canvas">
@@ -517,7 +520,8 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- ===== FEATURE TABS ===== -->
     <section class="features-section section" id="features">
@@ -635,144 +639,65 @@
         <div class="text-center reveal">
           <span class="section-label">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-            TMS Capabilities
+            Our Services
           </span>
-          <h2 class="section-title">Complete Business Control with <span class="text-gradient">9 Core Systems</span></h2>
-          <p class="section-subtitle">Everything you need to manage your entire logistics operation from a single platform.</p>
+          <h2 class="section-title">Our <span class="text-gradient">Services</span></h2>
+          <p class="section-subtitle">Intelligent transportation management software to optimize, automate and scale your logistics operations.</p>
         </div>
 
-        <div class="services-grid bento-grid">
-          <!-- Card 1 (Large - span 2) -->
-          <div class="service-card service-card-large reveal">
-            <div class="service-card-content">
-              <div class="service-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-              </div>
-              <h3>Smart Logistics (FTL &amp; PTL)</h3>
-              <p>Full Truckload and Part Truckload management with AI-optimized load planning and route efficiency. Track vehicles across states with automated updates.</p>
-            </div>
-            
-            <!-- Bento Widget: Route Tracker -->
-            <div class="service-bento-widget route-widget">
-              <div class="bento-widget-title">Live Dispatch Monitor</div>
-              <div class="bento-route-line">
-                <div class="bento-route-progress"></div>
-                <div class="bento-route-dot completed"></div>
-                <div class="bento-route-dot active"></div>
-                <div class="bento-route-dot"></div>
-              </div>
-              <div class="bento-route-labels">
-                <div>
-                  <span class="label-city">Delhi Hub</span>
-                  <span class="label-status">Departed 08:30 AM</span>
-                </div>
-                <div>
-                  <span class="label-city highlight">Jaipur Bypass</span>
-                  <span class="label-status highlight">Transit (En Route)</span>
-                </div>
-                <div>
-                  <span class="label-city">Mumbai Port</span>
-                  <span class="label-status">ETA: Tomorrow</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2 (Small) -->
+        <div class="services-grid">
+          <!-- Card 1: Vehicle Tracking and Monitoring -->
           <div class="service-card reveal">
             <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
-            <h3>Smart Billing System</h3>
-            <p>Automated invoicing, GST compliance, and billing reconciliation across all shipment types and clients.</p>
+            <h3>Vehicle Tracking and Monitoring</h3>
+            <p>Track vehicles in real time with GPS-enabled transportation management software, improve fleet visibility, ensure on-time deliveries, enhance security, and monitor driver behavior for better operational control.</p>
           </div>
 
-          <!-- Card 3 (Large - span 2) -->
-          <div class="service-card service-card-large reveal">
-            <div class="service-card-content">
-              <div class="service-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              <h3>Fleet Management</h3>
-              <p>GPS tracking, vehicle maintenance scheduling, fuel management, and driver performance analytics. Optimize vehicle downtime and fuel costs.</p>
-            </div>
-
-            <!-- Bento Widget: Fleet Status -->
-            <div class="service-bento-widget fleet-widget">
-              <div class="bento-widget-title">Asset Utilization Stats</div>
-              <div class="bento-progress-row">
-                <div class="bento-progress-info">
-                  <span>Fleet Availability</span>
-                  <span>92.4%</span>
-                </div>
-                <div class="bento-progress-bar">
-                  <div class="bento-progress-fill" style="width: 92.4%; background: var(--violet-500);"></div>
-                </div>
-              </div>
-              <div class="bento-progress-row">
-                <div class="bento-progress-info">
-                  <span>Active Drivers</span>
-                  <span>88.0%</span>
-                </div>
-                <div class="bento-progress-bar">
-                  <div class="bento-progress-fill" style="width: 88%; background: var(--orange-500);"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4 (Small) -->
+          <!-- Card 2: Fuel Management -->
           <div class="service-card reveal">
             <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 10 12 5 16.5 10"/><line x1="12" y1="5" x2="12" y2="16"/></svg>
             </div>
-            <h3>Accounting Management</h3>
-            <p>Integrated financial management with Tally sync, P&amp;L tracking, and automated ledger management.</p>
+            <h3>Fuel Management</h3>
+            <p>Optimize fuel consumption with smart fuel management tools, track usage patterns, prevent fuel theft, reduce operational costs, and improve overall efficiency with accurate data insights.</p>
           </div>
 
-          <!-- Card 5 -->
-          <div class="service-card reveal">
-            <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
-            <h3>Real-Time Tracking</h3>
-            <p>Live GPS tracking with geofencing, route deviation alerts, and customer-facing tracking portal.</p>
-          </div>
-
-          <!-- Card 6 -->
+          <!-- Card 3: Driver Management -->
           <div class="service-card reveal">
             <div class="service-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
-            <h3>CRM &amp; Customer Portal</h3>
-            <p>Manage client relationships, offer self-service tracking, and send proactive delivery notifications.</p>
+            <h3>Driver Management</h3>
+            <p>Manage driver performance, attendance, and schedules efficiently, ensure compliance, track behavior, assign trips easily, and improve safety standards with a centralized driver management system.</p>
           </div>
 
-          <!-- Card 7 -->
+          <!-- Card 4: Maintenance Management -->
           <div class="service-card reveal">
             <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 11 13 15 9"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
             </div>
-            <h3>Compliance &amp; E-Way Bill</h3>
-            <p>Automated E-Way Bill generation, FASTag integration, and GST-compliant documentation.</p>
+            <h3>Maintenance Management</h3>
+            <p>Schedule preventive maintenance, track service history, reduce unexpected breakdowns, increase vehicle lifespan, and ensure smooth operations.</p>
           </div>
 
-          <!-- Card 8 -->
+          <!-- Card 5: Route Planning and Optimization -->
           <div class="service-card reveal">
             <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
             </div>
-            <h3>Analytics &amp; Reporting</h3>
-            <p>Advanced KPI dashboards, custom reports, and AI-powered insights to drive decision-making.</p>
+            <h3>Route Planning and Optimization</h3>
+            <p>Plan efficient delivery routes, reduce travel time, save fuel costs, avoid traffic delays, and improve delivery performance using advanced route optimization algorithms.</p>
           </div>
 
-          <!-- Card 9 -->
+          <!-- Card 6: Reports and Analytics -->
           <div class="service-card reveal">
             <div class="service-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
             </div>
-            <h3>Last Mile Delivery</h3>
-            <p>Optimized last-mile routing, proof-of-delivery capture, and customer notification automation.</p>
+            <h3>Reports and Analytics</h3>
+            <p>Generate detailed reports, analyze fleet performance, track KPIs, gain actionable insights, and make data-driven decisions to improve overall supply chain efficiency.</p>
           </div>
         </div>
       </div>

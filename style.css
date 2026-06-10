@@ -696,7 +696,10 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   animation: fadeInRight 0.8s ease-out 0.3s both;
-  min-height: 480px;
+  min-height: 400px;
+  max-width: 450px;
+  width: 100%;
+  margin-left: auto;
 }
 
 .hero-3d-cargo-container {
@@ -1485,12 +1488,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .feature-screenshot {
-  width: 100%;
-  height: 100%;
-  min-height: 350px;
-  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  max-height: 360px;
+  object-fit: contain;
   display: block;
+  margin: 0 auto;
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
   transition: transform var(--transition-slow);
 }
 
@@ -3565,7 +3570,7 @@ h1, h2, h3, h4, h5, h6 {
   .hero-stats { justify-content: center; }
 
   .hero-visual {
-    max-width: 600px;
+    max-width: 440px;
     margin: 0 auto;
   }
 
@@ -3778,6 +3783,11 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid var(--navy-600);
   border-bottom: 1px solid var(--navy-600);
   overflow: hidden;
+  position: relative;
+}
+
+.yard-sim-wrapper {
+  width: 100%;
   position: relative;
 }
 
@@ -4605,8 +4615,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .service-card {
-  background: #FFFFFF !important;
-  border: 1px solid #E2E8F0 !important;
+  background: #F4F8FD !important;
+  border: 1px solid #E6EEF8 !important;
+  box-shadow: none !important;
+}
+
+.service-card:hover {
+  background: #ECF3FC !important;
+  border-color: #D6E4F6 !important;
+  box-shadow: 0 8px 30px rgba(25, 118, 210, 0.08) !important;
 }
 
 .service-card h3 {
@@ -4614,12 +4631,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .service-card p {
-  color: #64748B !important;
+  color: #475569 !important;
 }
 
 .service-icon {
-  color: #2563EB !important;
-  background: rgba(37, 99, 235, 0.06) !important;
+  color: #1976D2 !important;
+  background: #E3EEFC !important;
 }
 
 /* Bento Widgets */

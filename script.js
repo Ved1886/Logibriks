@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   // YARD OPERATIONS SCROLL-SCRUB SIMULATOR
   // ============================================
-  const yardWorkspace = document.querySelector('.yard-sim-workspace');
+  const yardWorkspace = document.querySelector('.yard-sim-wrapper');
   const stagesTrack = document.querySelector('.yard-sim-scrolling-stages');
   const stageCards = document.querySelectorAll('.sim-stage-card');
   const simTruck = document.querySelector('#simulator-truck');
