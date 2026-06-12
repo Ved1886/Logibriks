@@ -170,7 +170,7 @@
   position: relative;
 }
 
-.section-title::before {
+/* .section-title::before {
   content: '';
   position: absolute;
   bottom: -10px;
@@ -180,7 +180,7 @@
   height: 4px;
   background: #1976D2;
   border-radius: 2px;
-}
+} */
 
 /* --- Parallax Scroll Effect --- */
 .parallax-section {

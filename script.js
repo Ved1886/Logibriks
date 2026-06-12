@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Hero scrolling parallax & general section entrance sequences are handled in animations.js
 
   // ============================================
-  // 1. HEADER — Scroll & Mobile Menu
+  // 1. HEADER — Scroll, Mobile Menu & Mega Dropdowns
   // ============================================
   const header = document.getElementById('header');
   const mobileToggle = document.getElementById('mobile-toggle');
@@ -26,17 +26,109 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileToggle.classList.toggle('active');
       navLinks.classList.toggle('active');
       document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+      
+      // Close all active sub dropdowns when opening/closing mobile menu
+      if (!navLinks.classList.contains('active')) {
+        document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('active'));
+      }
     });
   }
 
-  // Close mobile menu on link click
-  document.querySelectorAll('.nav-links a').forEach(link => {
+  // Close mobile menu on non-dropdown link click
+  document.querySelectorAll('.nav-links a:not(.nav-dropdown-trigger)').forEach(link => {
     link.addEventListener('click', () => {
-      mobileToggle.classList.remove('active');
-      navLinks.classList.remove('active');
+      if (mobileToggle) mobileToggle.classList.remove('active');
+      if (navLinks) navLinks.classList.remove('active');
       document.body.style.overflow = '';
     });
   });
+
+  // Mobile Accordion Toggle for Mega Menus
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+  dropdowns.forEach(dropdown => {
+    const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+    if (trigger) {
+      trigger.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          e.stopPropagation();
+          const isActive = dropdown.classList.contains('active');
+          
+          // Toggle current
+          dropdown.classList.toggle('active', !isActive);
+          
+          // Collapse others
+          dropdowns.forEach(other => {
+            if (other !== dropdown) {
+              other.classList.remove('active');
+            }
+          });
+        }
+      });
+    }
+  });
+
+  // Services Mega Menu interactive category navigation & scrollspy
+  const servicesScrollContainer = document.getElementById('services-scroll-container');
+  const sidebarItems = document.querySelectorAll('.services-sidebar .sidebar-item');
+
+  if (servicesScrollContainer && sidebarItems.length > 0) {
+    let isScrollingFromClick = false;
+    let scrollTimeout;
+
+    sidebarItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const category = item.dataset.category;
+        const targetGroup = document.getElementById(`group-${category}`);
+        if (targetGroup) {
+          isScrollingFromClick = true;
+          clearTimeout(scrollTimeout);
+
+          sidebarItems.forEach(sib => sib.classList.remove('active'));
+          item.classList.add('active');
+
+          const containerTop = servicesScrollContainer.getBoundingClientRect().top;
+          const groupTop = targetGroup.getBoundingClientRect().top;
+          const offset = groupTop - containerTop + servicesScrollContainer.scrollTop;
+
+          servicesScrollContainer.scrollTo({
+            top: offset,
+            behavior: 'smooth'
+          });
+
+          // Wait until scroll animation finishes to resume scrollspy
+          scrollTimeout = setTimeout(() => {
+            isScrollingFromClick = false;
+          }, 800);
+        }
+      });
+    });
+
+    servicesScrollContainer.addEventListener('scroll', () => {
+      if (isScrollingFromClick) return;
+
+      const containerTop = servicesScrollContainer.getBoundingClientRect().top;
+      const groups = servicesScrollContainer.querySelectorAll('.services-group');
+      let activeCategory = '';
+
+      groups.forEach(group => {
+        const groupTop = group.getBoundingClientRect().top - containerTop;
+        if (groupTop <= 40) {
+          activeCategory = group.id.replace('group-', '');
+        }
+      });
+
+      if (activeCategory) {
+        sidebarItems.forEach(item => {
+          if (item.dataset.category === activeCategory) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      }
+    });
+  }
 
   // Scroll reveal Intersection Observer is handled in animations.js for index.html
 
@@ -119,11 +211,34 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   // STANDALONE SCROLL-DRIVEN HORIZONTAL JOURNEY SCRIPTS
   // ============================================
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.scrollY;
+  const journeySection = document.getElementById("journey-component");
+  if (journeySection) {
+    const nodes = journeySection.querySelectorAll(".j-timeline-node");
+    const markers = journeySection.querySelectorAll(".j-timeline-marker");
+    const scrollPercentTargets = [0, 0.3, 0.6, 1.0];
 
-    const journeySection = document.getElementById("journey-component");
-    if (journeySection) {
+    function scrollToStep(idx) {
+      const journeyTop = journeySection.offsetTop;
+      const journeyHeight = journeySection.clientHeight;
+      const targetPercent = scrollPercentTargets[idx];
+      const targetScrollTop = journeyTop + targetPercent * (journeyHeight - window.innerHeight);
+      
+      window.scrollTo({
+        top: targetScrollTop,
+        behavior: "smooth"
+      });
+    }
+
+    nodes.forEach((node, idx) => {
+      node.addEventListener("click", () => scrollToStep(idx));
+    });
+
+    markers.forEach((marker, idx) => {
+      marker.addEventListener("click", () => scrollToStep(idx));
+    });
+
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
       const journeyTop = journeySection.offsetTop;
       const journeyHeight = journeySection.clientHeight;
 
@@ -175,17 +290,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Toggle active status label nodes on timeline
-      const nodes = journeySection.querySelectorAll(".j-timeline-node");
+      // Toggle active status label nodes and bullets on timeline
       nodes.forEach((node, idx) => {
-        if (idx === activeIndex) {
-          node.classList.add("j-active");
-        } else {
-          node.classList.remove("j-active");
-        }
+        node.classList.toggle("j-active", idx === activeIndex);
       });
-    }
-  });
+      markers.forEach((marker, idx) => {
+        marker.classList.toggle("j-active", idx === activeIndex);
+      });
+    });
+  }
 
   // ============================================
   // 4. SHIPMENT TRACKER SIMULATOR
@@ -970,7 +1083,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   // 19. TESTIMONIALS CAROUSEL
   // ============================================
-  const testimonialCards = document.querySelectorAll('.testimonial-card');
+  const testimonialCards = document.querySelectorAll('.testimonial-slider-wrapper .testimonial-card');
   const testimonialDots = document.querySelectorAll('.testimonial-dot');
   let currentTestimonial = 0;
   let testimonialInterval;
@@ -1032,7 +1145,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   // 21. TILT EFFECT ON SERVICE CARDS & PRICING CARDS
   // ============================================
-  document.querySelectorAll('.service-card, .pricing-card').forEach(card => {
+  document.querySelectorAll('.service-card, .pricing-card, .testimonial-card').forEach(card => {
     card.style.transition = 'transform var(--transition-base), box-shadow var(--transition-base)';
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();

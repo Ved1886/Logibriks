@@ -25,7 +25,7 @@
       right: -20%;
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(25,118,210,0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0, 115, 170,0.06) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
@@ -79,10 +79,10 @@
         <!-- SVG Truck with container and rotating wheels -->
         <svg class="preloader-truck" viewBox="0 0 100 45" width="55" height="25" xmlns="http://www.w3.org/2000/svg">
           <!-- Truck Container/Box -->
-          <rect x="5" y="5" width="60" height="24" rx="2" fill="#2563EB" />
+          <rect x="5" y="5" width="60" height="24" rx="2" fill="#0073AA" />
           <path d="M12 9 H58 M12 17 H58 M12 25 H58" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
           <!-- Truck Cab -->
-          <path d="M66 12 h14 c2 0 4 2 4 4 v13 h-22 z" fill="#1E40AF" />
+          <path d="M66 12 h14 c2 0 4 2 4 4 v13 h-22 z" fill="#005984" />
           <!-- Cab Window -->
           <path d="M72 15 h6 c1.5 0 2 1 2 2.5 v4.5 h-8 z" fill="#E2E8F0" />
           <!-- Bumper -->
@@ -124,19 +124,270 @@
       </a>
 
       <nav class="nav-links" id="nav-links">
-        <a href="index.html#features">Features</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#fleet">Fleet</a>
-        <a href="tracking.html">Tracking</a>
-        <a href="quote.html" class="active">Get Quote</a>
-        <a href="index.html#faq">FAQ</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" class="nav-link-item">LogiVite</a>
+        
+        <!-- Company Dropdown -->
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger">Company <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="mega-menu" id="mega-company">
+            <div class="mega-menu-inner company-grid">
+              <!-- Left Side Card -->
+              <div class="company-left-card">
+                <div>
+                  <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Our Vision</h3>
+                  <p class="card-desc">Precision at scale. Transforming supply chains worldwide with high-precision TMS solutions.</p>
+                </div>
+                <a href="index.html#benefits" class="card-link">Learn Our Story &rarr;</a>
+              </div>
+              
+              <!-- Right Side Grid -->
+              <div class="company-right-grid">
+                <a href="culture.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our Culture</div>
+                    <div class="item-desc">Our shared values and workspace</div>
+                  </div>
+                </a>
+                <a href="contact.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><circle cx="9" cy="7" r="4"/><path d="M9 14a6 6 0 0 0-6 6v1"/></svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our People</div>
+                    <div class="item-desc">Meet the leadership and engineers</div>
+                  </div>
+                </a>
+                <a href="index.html#benefits" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our Vision</div>
+                    <div class="item-desc">Leading tomorrow's logistics</div>
+                  </div>
+                </a>
+                <a href="index.html#journey-component" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/><path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5"/></svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our Story</div>
+                    <div class="item-desc">Logibrisk origins and milestones</div>
+                  </div>
+                </a>
+                <a href="index.html#services" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our Mission</div>
+                    <div class="item-desc">Delivering seamless operations</div>
+                  </div>
+                </a>
+                <a href="index.html#faq" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">FAQ's</div>
+                    <div class="item-desc">Got questions? We have answers</div>
+                  </div>
+                </a>
+                <a href="index.html#partners" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Testimonials</div>
+                    <div class="item-desc">What our clients say about us</div>
+                  </div>
+                </a>
+                <a href="index.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Blog</div>
+                    <div class="item-desc">Logistics updates and insights</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Our Services Dropdown -->
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger">Our Services <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="mega-menu" id="mega-services">
+            <div class="mega-menu-inner services-mega-grid">
+              <!-- Left Side Sidebar -->
+              <div class="services-sidebar">
+                <div class="sidebar-header">SERVICE CATEGORIES</div>
+                <ul class="sidebar-menu">
+                  <li class="sidebar-item active" data-category="ops-suite">
+                    <span class="bullet"></span>Operations Suite
+                  </li>
+                  <li class="sidebar-item" data-category="fin-modules">
+                    <span class="bullet"></span>Financial Modules
+                  </li>
+                  <li class="sidebar-item" data-category="int-hub">
+                    <span class="bullet"></span>Integrations Hub
+                  </li>
+                </ul>
+              </div>
+              
+              <!-- Right Side List (Scrollable) -->
+              <div class="services-content" id="services-scroll-container">
+                
+                <!-- Operations Suite Group -->
+                <div class="services-group" id="group-ops-suite">
+                  <div class="group-title">Operations Suite</div>
+                  <div class="services-items-grid">
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+                      <div class="service-mega-title">Fleet Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="m16.2 7.8-4.2 4.2"/><circle cx="12" cy="12" r="1"/></svg></div>
+                      <div class="service-mega-title">Express Cargo Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/><polyline points="5 12 12 5 19 12"/></svg></div>
+                      <div class="service-mega-title">ODC Movements Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+                      <div class="service-mega-title">E-commerce Delivery Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+                      <div class="service-mega-title">Last Mile Delivery Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+                      <div class="service-mega-title">E-commerce Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div>
+                      <div class="service-mega-title">Full Truckload Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/><path d="M5 9h5"/></svg></div>
+                      <div class="service-mega-title">Part Truckload Management Software</div>
+                    </a>
+                  </div>
+                </div>
+                
+                <!-- Financial Modules Group -->
+                <div class="services-group" id="group-fin-modules">
+                  <div class="group-title">Financial Modules</div>
+                  <div class="services-items-grid">
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="m14 13-5 5"/><path d="m3 21 3-3"/><path d="m20.6 6.6-4.2-4.2a2 2 0 0 0-2.8 0L9.4 6.6a2 2 0 0 0 0 2.8l4.2 4.2a2 2 0 0 0 2.8 0l4.2-4.2a2 2 0 0 0 0-2.8z"/></svg></div>
+                      <div class="service-mega-title">Auction Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="9" y1="14" x2="15" y2="14"/><line x1="9" y1="18" x2="15" y2="18"/><path d="M10 6h4"/><path d="M10 10h4"/></svg></div>
+                      <div class="service-mega-title">Billing &amp; Accounts Management System</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H9H8"/></svg></div>
+                      <div class="service-mega-title">GST &amp; E-way Bill Enabled Logistics System</div>
+                    </a>
+                  </div>
+                </div>
+                
+                <!-- Integrations Hub Group -->
+                <div class="services-group" id="group-int-hub">
+                  <div class="group-title">Integrations Hub</div>
+                  <div class="services-items-grid">
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H9H8"/></svg></div>
+                      <div class="service-mega-title">GST &amp; E-way Bill Enabled Logistics System</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="m16.2 7.8-4.2 4.2"/><circle cx="12" cy="12" r="1"/></svg></div>
+                      <div class="service-mega-title">Express Cargo Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+                      <div class="service-mega-title">Fleet Management Software</div>
+                    </a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Our Products Dropdown -->
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger">Our Products <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="mega-menu" id="mega-products">
+            <div class="mega-menu-inner products-grid">
+              <!-- Product Card 1 -->
+              <div class="product-mega-card">
+                <div class="product-card-header">
+                  <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M18 15v-6a4 4 0 0 0-4-4H9"/><path d="m8 8-3-3 3-3"/></svg></div>
+                  <div class="header-text">
+                    <div class="product-mega-title">Smart Transport</div>
+                    <div class="product-mega-subtitle">End-to-end movement</div>
+                  </div>
+                </div>
+                <ul class="product-links">
+                  <li><a href="index.html#fleet">Smart FTL Management System</a></li>
+                  <li><a href="index.html#fleet">Smart PTL Management System</a></li>
+                  <li><a href="index.html#fleet">Smart Last Mile Delivery System</a></li>
+                </ul>
+              </div>
+              
+              <!-- Product Card 2 -->
+              <div class="product-mega-card">
+                <div class="product-card-header">
+                  <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 13-5 5"/><path d="m3 21 3-3"/><path d="m20.6 6.6-4.2-4.2a2 2 0 0 0-2.8 0L9.4 6.6a2 2 0 0 0 0 2.8l4.2 4.2a2 2 0 0 0 2.8 0l4.2-4.2a2 2 0 0 0 0-2.8z"/></svg></div>
+                  <div class="header-text">
+                    <div class="product-mega-title">Smart Bidding</div>
+                    <div class="product-mega-subtitle">Auctions &amp; procurement</div>
+                  </div>
+                </div>
+                <ul class="product-links">
+                  <li><a href="index.html#services">Smart Fleet Management System</a></li>
+                  <li><a href="index.html#services">Smart Auction Management System</a></li>
+                </ul>
+              </div>
+              
+              <!-- Product Card 3 -->
+              <div class="product-mega-card">
+                <div class="product-card-header">
+                  <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+                  <div class="header-text">
+                    <div class="product-mega-title">Smart Accounting</div>
+                    <div class="product-mega-subtitle">Billing &amp; finances</div>
+                  </div>
+                </div>
+                <ul class="product-links">
+                  <li><a href="index.html#services">Smart Billing Management System</a></li>
+                  <li><a href="index.html#services">Smart Accounting Management System</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </nav>
 
       <div class="header-actions">
-        <a href="quote.html" class="btn btn-primary btn-sm" id="header-cta">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Schedule Demo
+        <a href="contact.html" class="btn btn-primary btn-sm" id="header-cta">
+          Contact Us
         </a>
         <div class="mobile-toggle" id="mobile-toggle">
           <span></span><span></span><span></span>
