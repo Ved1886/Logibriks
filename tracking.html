@@ -445,6 +445,142 @@
         padding: 100px 0 2rem;
       }
     }
+
+    /* Single screen view adjustments on desktop */
+    @media (min-width: 992px) {
+      body {
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .tracking-page-hero {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 1.5rem 0 !important;
+        background: linear-gradient(160deg, #F8FAFC 0%, #E0ECFF 40%, #F0F4FA 100%);
+        overflow: hidden;
+      }
+
+      .tracking-page-hero > .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        max-height: calc(100vh - 180px);
+        justify-content: center;
+      }
+
+      .tracking-page-header {
+        margin-bottom: 1rem !important;
+      }
+
+      .tracking-page-header h1 {
+        font-size: 1.8rem !important;
+        margin-bottom: 0.25rem !important;
+      }
+
+      .tracking-page-header p {
+        font-size: 0.9rem !important;
+        max-width: 500px !important;
+      }
+
+      .tracking-search-card {
+        padding: 1.25rem 2rem !important;
+        margin-bottom: 0 !important;
+      }
+
+      .tracking-search-card .tracking-input-group {
+        margin-bottom: 1rem !important;
+      }
+
+      .tracking-search-card .tracking-input-group input {
+        padding: 12px 16px !important;
+        font-size: 0.95rem !important;
+      }
+
+      .tracking-search-card .tracking-input-group .btn {
+        padding: 12px 24px !important;
+        font-size: 0.95rem !important;
+      }
+
+      .tracking-results-grid {
+        margin-top: 1rem !important;
+        gap: 1rem !important;
+      }
+
+      .tracking-info-card,
+      .tracking-timeline-card {
+        padding: 1.25rem !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.03) !important;
+      }
+
+      .tracking-info-card-header,
+      .timeline-card-header {
+        margin-bottom: 0.75rem !important;
+        padding-bottom: 0.5rem !important;
+      }
+
+      .route-progress-section {
+        margin-bottom: 1rem !important;
+      }
+
+      .route-progress-bar {
+        margin: 1rem 0 !important;
+      }
+
+      .detail-row {
+        padding: 8px 12px !important;
+      }
+
+      .tracking-timeline {
+        max-height: 220px;
+        overflow-y: auto;
+        padding-right: 5px;
+      }
+
+      /* Custom scrollbar for timeline */
+      .tracking-timeline::-webkit-scrollbar {
+        width: 4px;
+      }
+      .tracking-timeline::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .tracking-timeline::-webkit-scrollbar-thumb {
+        background: #CBD5E1;
+        border-radius: 4px;
+      }
+
+      .timeline-step {
+        margin-bottom: 1rem !important;
+      }
+
+      /* Hide mega footer parts */
+      .footer-top-banner,
+      .footer-grid {
+        display: none !important;
+      }
+
+      .footer {
+        padding: 0 !important;
+        background: #090D1A !important;
+      }
+
+      .footer-bottom {
+        padding: 1rem 0 !important;
+        margin-top: 0 !important;
+        border-top: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -452,18 +588,7 @@
   <!-- ===== PRELOADER ===== -->
   <div class="preloader" id="preloader">
     <div class="preloader-logo">
-      <!-- Exact LB Logo from user image -->
-      <svg viewBox="0 0 120 90" width="72" height="54" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- L shape -->
-        <path d="M8 10 L8 70 L42 70 L42 62 L16 62 L16 10 Z" fill="white"/>
-        <!-- B shape -->
-        <path d="M38 10 L38 70 L62 70 C74 70 82 63 82 54 C82 48 79 43 74 40 C78 37 80 32 80 27 C80 17 73 10 62 10 Z M46 18 L61 18 C68 18 72 22 72 27 C72 33 68 36 61 36 L46 36 Z M46 44 L63 44 C70 44 74 48 74 54 C74 61 70 62 63 62 L46 62 Z" fill="white"/>
-        <!-- Speed lines -->
-        <line x1="88" y1="22" x2="115" y2="22" stroke="white" stroke-width="5" stroke-linecap="round"/>
-        <line x1="88" y1="36" x2="118" y2="36" stroke="white" stroke-width="5" stroke-linecap="round"/>
-        <line x1="88" y1="50" x2="115" y2="50" stroke="white" stroke-width="5" stroke-linecap="round"/>
-        <line x1="88" y1="64" x2="112" y2="64" stroke="white" stroke-width="5" stroke-linecap="round"/>
-      </svg>
+      <img src="images/logo.png" alt="LogiBrisk Logo" class="preloader-logo-img">
     </div>
     <div class="preloader-progress-container">
       <div class="preloader-truck-container">
@@ -511,20 +636,7 @@
   <header class="header" id="header">
     <div class="container header-inner">
       <a href="index.html" class="logo" id="logo">
-        <div class="logo-icon">
-          <svg viewBox="0 0 120 90" width="28" height="21" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 10 L8 70 L42 70 L42 62 L16 62 L16 10 Z" fill="white"/>
-            <path d="M38 10 L38 70 L62 70 C74 70 82 63 82 54 C82 48 79 43 74 40 C78 37 80 32 80 27 C80 17 73 10 62 10 Z M46 18 L61 18 C68 18 72 22 72 27 C72 33 68 36 61 36 L46 36 Z M46 44 L63 44 C70 44 74 48 74 54 C74 61 70 62 63 62 L46 62 Z" fill="white"/>
-            <line x1="88" y1="22" x2="115" y2="22" stroke="white" stroke-width="5" stroke-linecap="round"/>
-            <line x1="88" y1="36" x2="118" y2="36" stroke="white" stroke-width="5" stroke-linecap="round"/>
-            <line x1="88" y1="50" x2="115" y2="50" stroke="white" stroke-width="5" stroke-linecap="round"/>
-            <line x1="88" y1="64" x2="112" y2="64" stroke="white" stroke-width="5" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="logo-text">
-          <span>Logi<span>Brisk</span></span>
-          <span class="logo-tagline">Connect Globally</span>
-        </div>
+        <img src="images/logo.png" alt="LogiBrisk Logo" class="logo-img">
       </a>
 
       <nav class="nav-links" id="nav-links">
@@ -668,7 +780,7 @@
       
       <!-- Footer Top Banner -->
       <div class="footer-top-banner">
-        <h3>Ready to Transform Your Logistics?</h3>
+        <h3>Ready to Transform Your <span class="text-gradient">Logistics Operations?</span></h3>
         <p>Stop managing on spreadsheets. Join 500+ companies who have reclaimed their margins with LogiBrisk's intelligent TMS.</p>
         <div class="footer-banner-badges">
           <div class="footer-banner-badge">
@@ -689,21 +801,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">
-            <div class="logo-icon">
-              <!-- Exact LB Logo for footer -->
-              <svg viewBox="0 0 120 90" width="26" height="20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 10 L8 70 L42 70 L42 62 L16 62 L16 10 Z" fill="white"/>
-                <path d="M38 10 L38 70 L62 70 C74 70 82 63 82 54 C82 48 79 43 74 40 C78 37 80 32 80 27 C80 17 73 10 62 10 Z M46 18 L61 18 C68 18 72 22 72 27 C72 33 68 36 61 36 L46 36 Z M46 44 L63 44 C70 44 74 48 74 54 C74 61 70 62 63 62 L46 62 Z" fill="white"/>
-                <line x1="88" y1="22" x2="115" y2="22" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <line x1="88" y1="36" x2="118" y2="36" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <line x1="88" y1="50" x2="115" y2="50" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <line x1="88" y1="64" x2="112" y2="64" stroke="white" stroke-width="5" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="logo-text">
-              <span>Logi<span>Brisk</span></span>
-              <span class="logo-tagline">Connect Globally</span>
-            </div>
+            <img src="images/logo.png" alt="LogiBrisk Logo" class="logo-img">
           </a>
           <p>Logibrisk was established in the year 2022. India's leading Transportation Management Software, empowering logistics businesses with intelligent technology and connecting people worldwide.</p>
           <div class="footer-contact-info" style="margin-bottom: var(--space-md);">
@@ -813,8 +911,6 @@
         <div class="footer-bottom-links">
           <a href="#">Privacy</a>
           <a href="#">Terms</a>
-          <a href="mailto:sales@logibrisk.com">sales@logibrisk.com</a>
-          <a href="tel:+919824479555">+91 98244 79555</a>
         </div>
       </div>
     </div>

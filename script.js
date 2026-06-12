@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. SLOT-MACHINE REEL COUNTERS
   // ============================================
   const counters = document.querySelectorAll('.counter');
-  
+
   counters.forEach(c => {
     const targetStr = c.dataset.target;
-    
+
     // Format large numbers: 2400000 -> 2.4M
     let displayStr = targetStr;
     const num = parseInt(targetStr);
@@ -56,25 +56,25 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (num >= 1000) {
       displayStr = (num / 1000).toFixed(0) + 'K';
     }
-    
+
     c.innerHTML = ''; // Clear initial static text
-    
+
     // Build slots for each character
     const chars = displayStr.split('');
     let digitCount = 0;
-    
+
     chars.forEach(char => {
       if (/\d/.test(char)) {
         const slotDigit = document.createElement('div');
         slotDigit.className = 'slot-digit';
-        
+
         const strip = document.createElement('div');
         strip.className = 'digit-strip';
         strip.dataset.digit = char;
-        
+
         // Stagger digit rolls
         strip.style.transitionDelay = `${digitCount * 120}ms`;
-        
+
         // Generate 3 loops of 0-9 for spin effect
         let stripContent = '';
         for (let loop = 0; loop < 3; loop++) {
@@ -117,109 +117,75 @@ document.addEventListener('DOMContentLoaded', () => {
   counters.forEach(c => counterObserver.observe(c));
 
   // ============================================
-  // YARD OPERATIONS SCROLL-SCRUB SIMULATOR
+  // STANDALONE SCROLL-DRIVEN HORIZONTAL JOURNEY SCRIPTS
   // ============================================
-  const yardWorkspace = document.querySelector('.yard-sim-wrapper');
-  const stagesTrack = document.querySelector('.yard-sim-scrolling-stages');
-  const stageCards = document.querySelectorAll('.sim-stage-card');
-  const simTruck = document.querySelector('#simulator-truck');
-  const simWheels = document.querySelectorAll('.truck-wheel');
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
 
-  if (yardWorkspace && simTruck && stagesTrack && stageCards.length) {
-    gsap.registerPlugin(MotionPathPlugin);
+    const journeySection = document.getElementById("journey-component");
+    if (journeySection) {
+      const journeyTop = journeySection.offsetTop;
+      const journeyHeight = journeySection.clientHeight;
 
-    gsap.set(simTruck, { left: 0, top: 0, xPercent: -50, yPercent: -50, rotation: 0 });
+      // Calculate scroll percentage within the journey container (clamped between 0 and 1)
+      let scrollPercent = (scrollTop - journeyTop) / (journeyHeight - window.innerHeight);
+      scrollPercent = Math.max(0, Math.min(1, scrollPercent));
 
-    const setActiveStage = (stage) => {
-      stageCards.forEach((card) => {
-        card.classList.toggle('active', card.dataset.stage === String(stage));
-      });
-    };
+      // Translate track: slides range from 0% (Slide 1) to -75% (Slide 4) relative to the 400% track width
+      const trackTranslate = scrollPercent * 75;
+      const slidingTrack = document.getElementById("j-sliding-track");
+      if (slidingTrack) {
+        slidingTrack.style.transform = `translateX(-${trackTranslate}%)`;
+      }
 
-    const pathConfig = {
-      path: '#truck-road-path',
-      align: '#truck-road-path',
-      alignOrigin: [0.5, 0.5],
-      autoRotate: true
-    };
+      // Move timeline progress bar & truck indicator icon
+      const progressBar = document.getElementById("j-progress-bar");
+      const truckIcon = document.getElementById("j-truck-icon");
+      if (progressBar) {
+        progressBar.style.width = `${scrollPercent * 100}%`;
+      }
+      if (truckIcon) {
+        truckIcon.style.left = `${scrollPercent * 100}%`;
+      }
 
-    const simTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.yard-sim-wrapper',
-        start: 'top top',
-        end: () => `+=${Math.round(window.innerHeight * 2)}`,
-        scrub: 1.2,
-        pin: true,
-        pinSpacing: true,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          const stage = self.progress < 0.34 ? 1 : self.progress < 0.67 ? 2 : 3;
-          setActiveStage(stage);
+      // Active node threshold mapping:
+      // Index 0: 0.0 - 0.15
+      // Index 1: 0.15 - 0.45
+      // Index 2: 0.45 - 0.75
+      // Index 3: 0.75 - 1.0
+      let activeIndex = 0;
+      if (scrollPercent > 0.15 && scrollPercent <= 0.45) {
+        activeIndex = 1;
+      } else if (scrollPercent > 0.45 && scrollPercent <= 0.75) {
+        activeIndex = 2;
+      } else if (scrollPercent > 0.75) {
+        activeIndex = 3;
+      }
+
+      // Toggle active headings & description overlays
+      const slides = journeySection.querySelectorAll(".j-journey-slide");
+      slides.forEach((slide, idx) => {
+        const contentBox = slide.querySelector(".j-slide-content-box");
+        if (contentBox) {
+          if (idx === activeIndex) {
+            contentBox.classList.add("j-active");
+          } else {
+            contentBox.classList.remove("j-active");
+          }
         }
-      }
-    });
-
-    simTimeline
-      // Stage 1 — approach gate & scan
-      .to(simTruck, {
-        motionPath: { ...pathConfig, start: 0, end: 0.1 },
-        duration: 1.8,
-        ease: 'none'
-      })
-      .to('.gate-scanner-beam', { opacity: 1, duration: 0.35, ease: 'power2.out' })
-      .to('.gate-scanner', {
-        filter: 'drop-shadow(0 0 10px #10B981)',
-        color: '#10B981',
-        duration: 0.25,
-        ease: 'power2.out'
-      }, '-=0.15')
-      .to('.gate-arm', { rotation: -70, duration: 0.55, ease: 'power2.inOut' }, '-=0.1')
-      .to(simTruck, {
-        motionPath: { ...pathConfig, start: 0.1, end: 0.42 },
-        duration: 3.8,
-        ease: 'none'
-      })
-      // Stage 2 — loading bay crane
-      .to('.crane-arm', { rotation: 14, duration: 0.65, ease: 'power2.inOut' })
-      .to('.cargo-container-box', { y: 50, duration: 0.65, ease: 'power2.inOut' }, '-=0.45')
-      .to('.loaded-cargo', { opacity: 1, duration: 0.2, ease: 'power1.out' })
-      .to('.cargo-container-box', { opacity: 0, duration: 0.2, ease: 'power1.in' }, '-=0.1')
-      .to('.crane-arm', { rotation: 0, duration: 0.65, ease: 'power2.inOut' })
-      // Stage 3 — outbound dispatch to ship
-      .to(simTruck, {
-        motionPath: { ...pathConfig, start: 0.42, end: 0.9 },
-        duration: 5.2,
-        ease: 'none'
-      })
-      .to('.cargo-ship-icon', {
-        scale: 1.12,
-        color: '#0EA5E9',
-        filter: 'drop-shadow(0 0 15px rgba(14,165,233,0.6))',
-        duration: 0.6,
-        ease: 'power2.out'
-      }, '-=1.2')
-      .to(simTruck, {
-        motionPath: { ...pathConfig, start: 0.9, end: 1 },
-        duration: 1.8,
-        ease: 'none'
       });
 
-    const totalDur = simTimeline.duration();
-    const wheelRot = { val: 0 };
-
-    simTimeline.to(wheelRot, {
-      val: 1080,
-      ease: 'none',
-      duration: totalDur,
-      onUpdate: () => {
-        simWheels.forEach((w) => {
-          w.style.transform = `rotate(${wheelRot.val}deg)`;
-        });
-      }
-    }, 0);
-
-    // Cards crossfade in place automatically via the active class
-  }
+      // Toggle active status label nodes on timeline
+      const nodes = journeySection.querySelectorAll(".j-timeline-node");
+      nodes.forEach((node, idx) => {
+        if (idx === activeIndex) {
+          node.classList.add("j-active");
+        } else {
+          node.classList.remove("j-active");
+        }
+      });
+    }
+  });
 
   // ============================================
   // 4. SHIPMENT TRACKER SIMULATOR
@@ -519,15 +485,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Distance matrix (simplified, in km)
     const distances = {
-      surat:     { surat: 0, mumbai: 284, delhi: 1184, bangalore: 1237, chennai: 1568, kolkata: 1926, hyderabad: 900, ahmedabad: 265, pune: 332 },
-      mumbai:    { surat: 284, mumbai: 0, delhi: 1400, bangalore: 984, chennai: 1331, kolkata: 2050, hyderabad: 710, ahmedabad: 524, pune: 148 },
-      delhi:     { surat: 1184, mumbai: 1400, delhi: 0, bangalore: 2150, chennai: 2182, kolkata: 1472, hyderabad: 1500, ahmedabad: 940, pune: 1417 },
+      surat: { surat: 0, mumbai: 284, delhi: 1184, bangalore: 1237, chennai: 1568, kolkata: 1926, hyderabad: 900, ahmedabad: 265, pune: 332 },
+      mumbai: { surat: 284, mumbai: 0, delhi: 1400, bangalore: 984, chennai: 1331, kolkata: 2050, hyderabad: 710, ahmedabad: 524, pune: 148 },
+      delhi: { surat: 1184, mumbai: 1400, delhi: 0, bangalore: 2150, chennai: 2182, kolkata: 1472, hyderabad: 1500, ahmedabad: 940, pune: 1417 },
       bangalore: { surat: 1237, mumbai: 984, delhi: 2150, bangalore: 0, chennai: 347, kolkata: 1871, hyderabad: 570, ahmedabad: 1497, pune: 840 },
-      chennai:   { surat: 1568, mumbai: 1331, delhi: 2182, bangalore: 347, chennai: 0, kolkata: 1676, hyderabad: 627, ahmedabad: 1829, pune: 1172 },
-      kolkata:   { surat: 1926, mumbai: 2050, delhi: 1472, bangalore: 1871, chennai: 1676, kolkata: 0, hyderabad: 1500, ahmedabad: 1890, pune: 1888 },
+      chennai: { surat: 1568, mumbai: 1331, delhi: 2182, bangalore: 347, chennai: 0, kolkata: 1676, hyderabad: 627, ahmedabad: 1829, pune: 1172 },
+      kolkata: { surat: 1926, mumbai: 2050, delhi: 1472, bangalore: 1871, chennai: 1676, kolkata: 0, hyderabad: 1500, ahmedabad: 1890, pune: 1888 },
       hyderabad: { surat: 900, mumbai: 710, delhi: 1500, bangalore: 570, chennai: 627, kolkata: 1500, hyderabad: 0, ahmedabad: 1150, pune: 560 },
       ahmedabad: { surat: 265, mumbai: 524, delhi: 940, bangalore: 1497, chennai: 1829, kolkata: 1890, hyderabad: 1150, ahmedabad: 0, pune: 662 },
-      pune:      { surat: 332, mumbai: 148, delhi: 1417, bangalore: 840, chennai: 1172, kolkata: 1888, hyderabad: 560, ahmedabad: 662, pune: 0 }
+      pune: { surat: 332, mumbai: 148, delhi: 1417, bangalore: 840, chennai: 1172, kolkata: 1888, hyderabad: 560, ahmedabad: 662, pune: 0 }
     };
 
     const freightRates = { ftl: 28, ptl: 38, express: 55, cold: 65 };
@@ -782,7 +748,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 11. SMOOTH SCROLL for anchor links
   // ============================================
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
       if (targetId === '#') return;
       e.preventDefault();
@@ -790,34 +756,34 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) {
         const offset = 80;
         let top = target.getBoundingClientRect().top + window.scrollY - offset;
-        
-        // Adjust for yard simulator pin spacing if scrolling past it from above
-        const yardSim = document.querySelector('#yard-sim');
-        if (yardSim) {
-          const yardSimTop = yardSim.getBoundingClientRect().top + window.scrollY;
-          if (window.scrollY < yardSimTop && top > yardSimTop) {
-            top += window.innerHeight * 2;
+
+        // Adjust for journey component pin spacing if scrolling past it from above
+        const journeyComp = document.querySelector('#journey-component');
+        if (journeyComp) {
+          const journeyTop = journeyComp.getBoundingClientRect().top + window.scrollY;
+          if (window.scrollY < journeyTop && top > journeyTop) {
+            top += window.innerHeight * 3;
           }
         }
-        
+
         window.scrollTo({ top, behavior: 'smooth' });
       }
     });
   });
 
-  // Handle hash scroll on page load if scrolling past yard-sim
+  // Handle hash scroll on page load if scrolling past journey component
   if (window.location.hash) {
-    // Wait for GSAP ScrollTrigger to initialize
+    // Wait for event listeners to register
     setTimeout(() => {
       const target = document.querySelector(window.location.hash);
       if (target) {
         const offset = 80;
         let top = target.getBoundingClientRect().top + window.scrollY - offset;
-        const yardSim = document.querySelector('#yard-sim');
-        if (yardSim) {
-          const yardSimTop = yardSim.getBoundingClientRect().top + window.scrollY;
-          if (window.scrollY < yardSimTop && top > yardSimTop) {
-            top += window.innerHeight * 2;
+        const journeyComp = document.querySelector('#journey-component');
+        if (journeyComp) {
+          const journeyTop = journeyComp.getBoundingClientRect().top + window.scrollY;
+          if (window.scrollY < journeyTop && top > journeyTop) {
+            top += window.innerHeight * 3;
           }
         }
         window.scrollTo({ top, behavior: 'auto' });
@@ -1098,7 +1064,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (pricingToggle) {
     pricingToggle.addEventListener('click', () => {
       const isYearly = pricingToggle.classList.toggle('active');
-      
+
       if (isYearly) {
         labelMonthly.classList.remove('active');
         labelYearly.classList.add('active');
@@ -1123,6 +1089,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+
 
 });
 
