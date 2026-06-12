@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LogiBrisk — Live Shipment Tracking | Real-Time Logistics Tracker</title>
   <meta name="description" content="Track your shipments in real-time with LogiBrisk's intelligent logistics tracking system. Enter your tracking ID for instant updates." />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=2" />
   <link rel="stylesheet" href="animations.css" />
   <style>
     /* ===== TRACKING PAGE SPECIFIC STYLES ===== */
@@ -446,139 +446,10 @@
       }
     }
 
-    /* Single screen view adjustments on desktop */
+    /* Single screen view adjustments on desktop removed to prevent overlapping and allow scrolling */
     @media (min-width: 992px) {
-      body {
-        height: 100vh;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-      }
-      
-      main {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        overflow: hidden;
-      }
-
       .tracking-page-hero {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        padding: 1.5rem 0 !important;
-        background: linear-gradient(160deg, #F8FAFC 0%, #E0ECFF 40%, #F0F4FA 100%);
-        overflow: hidden;
-      }
-
-      .tracking-page-hero > .container {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        max-height: calc(100vh - 180px);
-        justify-content: center;
-      }
-
-      .tracking-page-header {
-        margin-bottom: 1rem !important;
-      }
-
-      .tracking-page-header h1 {
-        font-size: 1.8rem !important;
-        margin-bottom: 0.25rem !important;
-      }
-
-      .tracking-page-header p {
-        font-size: 0.9rem !important;
-        max-width: 500px !important;
-      }
-
-      .tracking-search-card {
-        padding: 1.25rem 2rem !important;
-        margin-bottom: 0 !important;
-      }
-
-      .tracking-search-card .tracking-input-group {
-        margin-bottom: 1rem !important;
-      }
-
-      .tracking-search-card .tracking-input-group input {
-        padding: 12px 16px !important;
-        font-size: 0.95rem !important;
-      }
-
-      .tracking-search-card .tracking-input-group .btn {
-        padding: 12px 24px !important;
-        font-size: 0.95rem !important;
-      }
-
-      .tracking-results-grid {
-        margin-top: 1rem !important;
-        gap: 1rem !important;
-      }
-
-      .tracking-info-card,
-      .tracking-timeline-card {
-        padding: 1.25rem !important;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.03) !important;
-      }
-
-      .tracking-info-card-header,
-      .timeline-card-header {
-        margin-bottom: 0.75rem !important;
-        padding-bottom: 0.5rem !important;
-      }
-
-      .route-progress-section {
-        margin-bottom: 1rem !important;
-      }
-
-      .route-progress-bar {
-        margin: 1rem 0 !important;
-      }
-
-      .detail-row {
-        padding: 8px 12px !important;
-      }
-
-      .tracking-timeline {
-        max-height: 220px;
-        overflow-y: auto;
-        padding-right: 5px;
-      }
-
-      /* Custom scrollbar for timeline */
-      .tracking-timeline::-webkit-scrollbar {
-        width: 4px;
-      }
-      .tracking-timeline::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      .tracking-timeline::-webkit-scrollbar-thumb {
-        background: #CBD5E1;
-        border-radius: 4px;
-      }
-
-      .timeline-step {
-        margin-bottom: 1rem !important;
-      }
-
-      /* Hide mega footer parts */
-      .footer-top-banner,
-      .footer-grid {
-        display: none !important;
-      }
-
-      .footer {
-        padding: 0 !important;
-        background: #090D1A !important;
-      }
-
-      .footer-bottom {
-        padding: 1rem 0 !important;
-        margin-top: 0 !important;
-        border-top: none !important;
+        padding: 140px 0 6rem !important;
       }
     }
   </style>

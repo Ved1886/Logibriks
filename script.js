@@ -756,7 +756,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) {
         const offset = 80;
         let top = target.getBoundingClientRect().top + window.scrollY - offset;
-
         // Adjust for journey component pin spacing if scrolling past it from above
         const journeyComp = document.querySelector('#journey-component');
         if (journeyComp) {
