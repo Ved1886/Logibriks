@@ -61,6 +61,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }, '-=0.2');
 
   // ============================================
+  // CULTURE HERO — CINEMATIC ENTRANCE SEQUENCE
+  // ============================================
+  if (document.querySelector('.culture-hero')) {
+    const cultureHeroTL = gsap.timeline({ delay: 0.3 });
+    cultureHeroTL
+      .from('.culture-hero-title', {
+        opacity: 0, y: 40, duration: 0.7, ease: 'power3.out'
+      })
+      .from('.culture-hero-subtitle', {
+        opacity: 0, y: 30, duration: 0.6, ease: 'power3.out'
+      }, '-=0.4')
+      .from('.culture-hero-btn', {
+        opacity: 0, y: 20, duration: 0.5, ease: 'power3.out'
+      }, '-=0.3')
+      .from('.culture-hero-image-wrap', {
+        opacity: 0, y: 40, scale: 0.98, duration: 0.7, ease: 'power3.out'
+      }, '-=0.4');
+  }
+
+  // ============================================
   // HERO — PARALLAX ON SCROLL
   // ============================================
   gsap.to('.hero-title', {
@@ -423,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ============================================
   // CARD TILT-ON-HOVER (3D Perspective)
   // ============================================
-  document.querySelectorAll('.service-card, .benefit-card, .dash-card').forEach(card => {
+  document.querySelectorAll('.service-card, .benefit-card, .dash-card, .principle-card, .stat-card, .country-card, .founder-card, .culture-testimonial-card, .secure-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -589,6 +609,42 @@ document.addEventListener('DOMContentLoaded', () => {
       ease: 'power2.inOut'
     });
   }
+
+  // ============================================
+  // STATS COUNTER ANIMATION (GSAP)
+  // ============================================
+  const statNumbers = document.querySelectorAll('.stat-number');
+  statNumbers.forEach(stat => {
+    const originalText = stat.innerText.trim();
+    const numericPart = originalText.replace(/[^0-9]/g, '');
+    const suffix = originalText.replace(/[0-9,]/g, '');
+    const hasComma = originalText.includes(',');
+    const targetValue = parseInt(numericPart, 10);
+
+    if (isNaN(targetValue)) return;
+
+    // Set initial display to 0 with suffix to prevent jumpy rendering
+    stat.innerText = (hasComma ? "0" : "0") + suffix;
+
+    const counter = { val: 0 };
+    gsap.to(counter, {
+      val: targetValue,
+      duration: 2.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: stat,
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      },
+      onUpdate: () => {
+        let currentVal = Math.floor(counter.val);
+        if (hasComma) {
+          currentVal = currentVal.toLocaleString('en-US');
+        }
+        stat.innerText = currentVal + suffix;
+      }
+    });
+  });
 
   // ============================================
   // REFRESH ON LOAD

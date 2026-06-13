@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Blog — LogiBrisk | Logistics Insights and Tech Trends</title>
+  <meta name="description"
+    content="Read the latest news, expert guides, and tech trends in the Indian logistics and transport industry on the LogiBrisk blog." />
+  <meta property="og:title" content="Our Blog — LogiBrisk TMS" />
+  <meta property="og:description"
+    content="Stay ahead with trends, innovations, and best practices in logistics and supply chain management." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://www.logibrisk.com/blogs/" />
+  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-logo">
+      <img src="images/logo.png" alt="LogiBrisk Logo" class="preloader-logo-img">
+    </div>
+    <div class="preloader-progress-container">
+      <div class="preloader-truck-container">
+        <!-- SVG Truck with container and rotating wheels -->
+        <svg class="preloader-truck" viewBox="0 0 100 45" width="55" height="25" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="60" height="24" rx="2" fill="#0073AA" />
+          <path d="M12 9 H58 M12 17 H58 M12 25 H58" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+          <path d="M66 12 h14 c2 0 4 2 4 4 v13 h-22 z" fill="#005984" />
+          <path d="M72 15 h6 c1.5 0 2 1 2 2.5 v4.5 h-8 z" fill="#E2E8F0" />
+          <rect x="80" y="29" width="5" height="3" fill="#64748B" />
+          <g class="truck-wheel wheel-1">
+            <circle cx="22" cy="33" r="7" fill="#1E293B" stroke="#64748B" stroke-width="1.2" />
+            <circle cx="22" cy="33" r="2" fill="#E2E8F0" />
+            <line x1="22" y1="26" x2="22" y2="40" stroke="#E2E8F0" stroke-width="1" />
+            <line x1="15" y1="33" x2="29" y2="33" stroke="#E2E8F0" stroke-width="1" />
+          </g>
+          <g class="truck-wheel wheel-2">
+            <circle cx="52" cy="33" r="7" fill="#1E293B" stroke="#64748B" stroke-width="1.2" />
+            <circle cx="52" cy="33" r="2" fill="#E2E8F0" />
+            <line x1="52" y1="26" x2="52" y2="40" stroke="#E2E8F0" stroke-width="1" />
+            <line x1="45" y1="33" x2="59" y2="33" stroke="#E2E8F0" stroke-width="1" />
+          </g>
+          <g class="truck-wheel wheel-3">
+            <circle cx="74" cy="33" r="7" fill="#1E293B" stroke="#64748B" stroke-width="1.2" />
+            <circle cx="74" cy="33" r="2" fill="#E2E8F0" />
+            <line x1="74" y1="26" x2="74" y2="40" stroke="#E2E8F0" stroke-width="1" />
+            <line x1="67" y1="33" x2="81" y2="33" stroke="#E2E8F0" stroke-width="1" />
+          </g>
+        </svg>
+      </div>
+      <div class="preloader-bar">
+        <div class="preloader-bar-fill"></div>
+      </div>
+    </div>
+    <div class="preloader-text">Loading</div>
+  </div>
+
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" id="logo">
+        <img src="images/logo.png" alt="LogiBrisk Logo" class="logo-img">
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="logivite.html" class="nav-link-item">LogiVite</a>
+
+        <!-- Company Dropdown -->
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger">Company <svg class="arrow-icon" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12"
+              height="12">
+              <path d="m6 9 6 6 6-6" />
+            </svg></a>
+          <div class="mega-menu" id="mega-company">
+            <div class="mega-menu-inner company-grid">
+              <!-- Left Side Card -->
+              <div class="company-left-card">
+                <div>
+                  <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Our Vision</h3>
+                  <p class="card-desc">Precision at scale. Transforming supply chains worldwide with high-precision TMS
+                    solutions.</p>
+                </div>
+                <a href="ourvision.html" class="card-link">Learn Our Story &rarr;</a>
+              </div>
+
+              <!-- Right Side Grid -->
+              <div class="company-right-grid">
+                <a href="culture.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our Culture</div>
+                    <div class="item-desc">Our shared values and workspace</div>
+                  </div>
+                </a>
+                <a href="ourpeople.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M9 14a6 6 0 0 0-6 6v1" />
+                    </svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our People</div>
+                    <div class="item-desc">Meet the leadership and engineers</div>
+                  </div>
+                </a>
+                <a href="index.html#faq" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                      <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">FAQ's</div>
+                    <div class="item-desc">Got questions? We have answers</div>
+                  </div>
+                </a>
+                <a href="contact.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">contact us</div>
+                    <div class="item-desc">Get in touch with our team</div>
+                  </div>
+                </a>
+                <a href="ourvision.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our Vision</div>
+                    <div class="item-desc">Leading tomorrow's logistics</div>
+                  </div>
+                </a>
+                <a href="ourstory.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M12 8v4l3 3" />
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" />
+                    </svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our Story</div>
+                    <div class="item-desc">Logibrisk origins and milestones</div>
+                  </div>
+                </a>
+                <a href="our-testimonial.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path
+                        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                    </svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Testimonial</div>
+                    <div class="item-desc">What our clients say about us</div>
+                  </div>
+                </a>
+                <div class="mega-item-empty" style="pointer-events: none; opacity: 0; visibility: hidden;"></div>
+                <a href="ourmission.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <circle cx="12" cy="12" r="6" />
+                      <circle cx="12" cy="12" r="2" />
+                    </svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our Mission</div>
+                    <div class="item-desc">Delivering seamless operations</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Our Services Dropdown -->
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger">Our Services <svg class="arrow-icon" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12"
+              height="12">
+              <path d="m6 9 6 6 6-6" />
+            </svg></a>
+          <div class="mega-menu" id="mega-services">
+            <div class="mega-menu-inner services-mega-grid">
+              <!-- Left Side Sidebar -->
+              <div class="services-sidebar">
+                <div class="sidebar-header">SERVICE CATEGORIES</div>
+                <ul class="sidebar-menu">
+                  <li class="sidebar-item active" data-category="ops-suite">
+                    <span class="bullet"></span>Operations Suite
+                  </li>
+                  <li class="sidebar-item" data-category="fin-modules">
+                    <span class="bullet"></span>Financial Modules
+                  </li>
+                  <li class="sidebar-item" data-category="int-hub">
+                    <span class="bullet"></span>Integrations Hub
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Right Side List -->
+              <div class="services-content" id="services-scroll-container">
+                <!-- Operations Suite Group -->
+                <div class="services-group" id="group-ops-suite">
+                  <div class="group-title">Operations Suite</div>
+                  <div class="services-items-grid">
+                    <a href="fleetmanagementsoftware.html" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <rect x="1" y="3" width="15" height="13" />
+                          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                          <circle cx="5.5" cy="18.5" r="2.5" />
+                          <circle cx="18.5" cy="18.5" r="2.5" />
+                        </svg></div>
+                      <div class="service-mega-title">Fleet Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <path
+                            d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2m10 0h2a1 1 0 0 0 1-1v-5a1 1 0 0 0-.3-.7l-3.4-3.5a1 1 0 0 0-.7-.3H14" />
+                          <circle cx="7.5" cy="18.5" r="2.5" />
+                          <circle cx="17.5" cy="18.5" r="2.5" />
+                        </svg></div>
+                      <div class="service-mega-title">Express Cargo Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <rect x="3" y="3" width="18" height="18" rx="2" />
+                          <path d="M21 12H3" />
+                          <path d="M12 3v18" />
+                        </svg></div>
+                      <div class="service-mega-title">ODC Movements Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <circle cx="9" cy="21" r="1" />
+                          <circle cx="20" cy="21" r="1" />
+                          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                        </svg></div>
+                      <div class="service-mega-title">E-commerce Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <polyline points="15 3 21 3 21 9" />
+                          <polyline points="9 21 3 21 3 15" />
+                          <line x1="21" y1="3" x2="14" y2="10" />
+                          <line x1="3" y1="21" x2="10" y2="14" />
+                        </svg></div>
+                      <div class="service-mega-title">Full Truckload Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <rect x="1" y="3" width="15" height="13" />
+                          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                          <circle cx="5.5" cy="18.5" r="2.5" />
+                          <circle cx="18.5" cy="18.5" r="2.5" />
+                          <path d="M5 9h5" />
+                        </svg></div>
+                      <div class="service-mega-title">Part Truckload Management Software</div>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Financial Modules Group -->
+                <div class="services-group" id="group-fin-modules">
+                  <div class="group-title">Financial Modules</div>
+                  <div class="services-items-grid">
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <path d="m14 13-5 5" />
+                          <path d="m3 21 3-3" />
+                          <path
+                            d="m20.6 6.6-4.2-4.2a2 2 0 0 0-2.8 0L9.4 6.6a2 2 0 0 0 0 2.8l4.2 4.2a2 2 0 0 0 2.8 0l4.2-4.2a2 2 0 0 0 0-2.8z" />
+                        </svg></div>
+                      <div class="service-mega-title">Auction Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <rect x="4" y="2" width="16" height="20" rx="2" />
+                          <line x1="9" y1="14" x2="15" y2="14" />
+                          <line x1="9" y1="18" x2="15" y2="18" />
+                          <path d="M10 6h4" />
+                          <path d="M10 10h4" />
+                        </svg></div>
+                      <div class="service-mega-title">Billing &amp; Accounts Management System</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                          <polyline points="14 2 14 8 20 8" />
+                          <path d="M16 13H8" />
+                          <path d="M16 17H8" />
+                          <path d="M10 9H9H8" />
+                        </svg></div>
+                      <div class="service-mega-title">GST &amp; E-way Bill Enabled Logistics System</div>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Integrations Hub Group -->
+                <div class="services-group" id="group-int-hub">
+                  <div class="group-title">Integrations Hub</div>
+                  <div class="services-items-grid">
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <path d="M10 13a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                          <path d="M14 11a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                        </svg></div>
+                      <div class="service-mega-title">ERP Integrations (SAP, Oracle)</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <circle cx="12" cy="12" r="10" />
+                          <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                          <path d="M2 12h20" />
+                        </svg></div>
+                      <div class="service-mega-title">GPS &amp; SIM Card Tracking</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                          <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                          <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                          <line x1="6" y1="6" x2="6.01" y2="6" />
+                          <line x1="6" y1="18" x2="6.01" y2="18" />
+                        </svg></div>
+                      <div class="service-mega-title">Fastag Payment APIs</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Our Products Dropdown -->
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger">Our Products <svg class="arrow-icon" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12"
+              height="12">
+              <path d="m6 9 6 6 6-6" />
+            </svg></a>
+          <div class="mega-menu" id="mega-products">
+            <div class="mega-menu-inner products-grid">
+              <!-- Product Card 1 -->
+              <div class="product-mega-card">
+                <div class="product-card-header">
+                  <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="6" cy="6" r="3" />
+                      <circle cx="18" cy="18" r="3" />
+                      <path d="M18 15v-6a4 4 0 0 0-4-4H9" />
+                      <path d="m8 8-3-3 3-3" />
+                    </svg></div>
+                  <div class="header-text">
+                    <div class="product-mega-title">Smart Transport</div>
+                    <div class="product-mega-subtitle">End-to-end movement</div>
+                  </div>
+                </div>
+                <ul class="product-links">
+                  <li><a href="index.html#fleet">Smart FTL Management System</a></li>
+                  <li><a href="index.html#fleet">Smart PTL Management System</a></li>
+                  <li><a href="index.html#fleet">Smart Last Mile Delivery System</a></li>
+                </ul>
+              </div>
+
+              <!-- Product Card 2 -->
+              <div class="product-mega-card">
+                <div class="product-card-header">
+                  <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m14 13-5 5" />
+                      <path d="m3 21 3-3" />
+                      <path
+                        d="m20.6 6.6-4.2-4.2a2 2 0 0 0-2.8 0L9.4 6.6a2 2 0 0 0 0 2.8l4.2 4.2a2 2 0 0 0 2.8 0l4.2-4.2a2 2 0 0 0 0-2.8z" />
+                    </svg></div>
+                  <div class="header-text">
+                    <div class="product-mega-title">Smart Bidding</div>
+                    <div class="product-mega-subtitle">Auctions &amp; procurement</div>
+                  </div>
+                </div>
+                <ul class="product-links">
+                  <li><a href="fleetmanagementsoftware.html">Smart Fleet Management System</a></li>
+                  <li><a href="index.html#services">Smart Auction Management System</a></li>
+                </ul>
+              </div>
+
+              <!-- Product Card 3 -->
+              <div class="product-mega-card">
+                <div class="product-card-header">
+                  <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                      <polyline points="14 2 14 8 20 8" />
+                      <line x1="16" y1="13" x2="8" y2="13" />
+                      <line x1="16" y1="17" x2="8" y2="17" />
+                      <polyline points="10 9 9 9 8 9" />
+                    </svg></div>
+                  <div class="header-text">
+                    <div class="product-mega-title">Smart Accounting</div>
+                    <div class="product-mega-subtitle">Billing &amp; finances</div>
+                  </div>
+                </div>
+                <ul class="product-links">
+                  <li><a href="index.html#services">Smart Billing Management System</a></li>
+                  <li><a href="index.html#services">Smart Accounting Management System</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm" id="header-cta">
+          Contact Us
+        </a>
+        <div class="mobile-toggle" id="mobile-toggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+
+    <!-- Hero Section -->
+    <section class="blog-hero section">
+      <div class="container text-center">
+        <h1 class="blog-hero-title">Our <span class="text-gradient">Blog</span></h1>
+        <p class="blog-hero-subtitle">Dive into industry insights and expert tips with the Logibrisk blog. Stay ahead
+          with the latest trends, innovations, and best practices in logistics and supply chain management.</p>
+        <a href="contact.html" class="btn btn-primary blog-hero-btn">Schedule Demo</a>
+      </div>
+    </section>
+
+    <!-- Filter and Search Section -->
+    <section class="blog-filter-section">
+      <div class="container blog-filter-inner">
+        <div class="blog-search-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round" width="20" height="20">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" class="blog-search-input" id="blog-search-input" placeholder="Search blog posts..." />
+        </div>
+        <div class="blog-categories-wrap">
+          <button class="blog-category-btn active" data-filter="all">All</button>
+          <button class="blog-category-btn" data-filter="logistics-software">Logistics Software</button>
+          <button class="blog-category-btn" data-filter="transport-software">Transportation Software</button>
+          <button class="blog-category-btn" data-filter="tms-software">TMS Software</button>
+          <button class="blog-category-btn" data-filter="ecommerce-software">E-commerce</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="blog-content-section">
+      <div class="container">
+        <h2 class="section-title text-center" style="margin-bottom: 8px;">Smarter Logistics Starts Here</h2>
+        <p class="section-subtitle text-center" style="max-width: 600px; margin: 0 auto 40px;">Explore strategies,
+          insights, and tools to improve efficiency and reduce costs.</p>
+
+        <div class="blog-grid" id="blog-grid">
+
+          <!-- Post 1 -->
+          <div class="blog-card reveal" data-category="transport-software">
+            <div class="blog-card-img-wrap">
+              <img src="images/blog_delivery_base.png" alt="Real-Time Shipment Tracking" class="blog-card-img">
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span>June 11, 2026</span>
+                <span>Transportation Software</span>
+              </div>
+              <h3 class="blog-card-title">Top 7 Real-Time Shipment Tracking Benefits for Indian Transport Companies</h3>
+              <p class="blog-card-excerpt">Ask any logistics manager in India what their biggest daily headache is, and
+                the answer is almost always the same. Tracking shipments, managing delays, and handling customer
+                inquiries consume huge resources. Real-time tracking software solves this by providing visibility.</p>
+              <a href="#" class="blog-card-link">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></a>
+            </div>
+          </div>
+
+          <!-- Post 2 -->
+          <div class="blog-card reveal" data-category="logistics-software">
+            <div class="blog-card-img-wrap">
+              <img src="images/blog_delivery_base.png" alt="Dispatch Planning Software" class="blog-card-img">
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span>June 09, 2026</span>
+                <span>Logistics Software</span>
+              </div>
+              <h3 class="blog-card-title">Dispatch Planning Software in Logistics: Key Challenges and Benefits</h3>
+              <p class="blog-card-excerpt">Every morning in a logistics company, the same scene plays out. A dispatcher
+                sits down with a list of orders, driver availabilities, and truck constraints trying to assemble a
+                workable dispatch plan. Discover how dispatch planning software automates and optimizes this process.
+              </p>
+              <a href="#" class="blog-card-link">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></a>
+            </div>
+          </div>
+
+          <!-- Post 3 -->
+          <div class="blog-card reveal" data-category="logistics-software">
+            <div class="blog-card-img-wrap">
+              <img src="images/blog_tech_base.png" alt="Route Optimization Software" class="blog-card-img">
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span>June 04, 2026</span>
+                <span>Logistics Software</span>
+              </div>
+              <h3 class="blog-card-title">What is Route Optimization Software? A Guide for Indian Logistics Companies
+              </h3>
+              <p class="blog-card-excerpt">Every kilometre your truck travels costs money. Fuel, driver time, and
+                vehicle wear all add up. And when routes are planned manually, vehicles end up taking longer paths or
+                driving half-empty. Here is how route optimization software streamlines deliveries.</p>
+              <a href="#" class="blog-card-link">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></a>
+            </div>
+          </div>
+
+          <!-- Post 4 -->
+          <div class="blog-card reveal" data-category="transport-software">
+            <div class="blog-card-img-wrap">
+              <img src="images/blog_compliance_base.png" alt="GST Billing Software" class="blog-card-img">
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span>June 01, 2026</span>
+                <span>Transportation Software</span>
+              </div>
+              <h3 class="blog-card-title">How GST Billing Software Helps Transport Businesses Save Time</h3>
+              <p class="blog-card-excerpt">Running a transport business in India has always required sharp operational
+                efficiency. But in 2026, there is one more thing you cannot compromise on: instant compliance. Explore
+                how automated GST billing and invoice generation saves hours of manual paperwork.</p>
+              <a href="#" class="blog-card-link">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></a>
+            </div>
+          </div>
+
+          <!-- Post 5 -->
+          <div class="blog-card reveal" data-category="transport-software">
+            <div class="blog-card-img-wrap">
+              <img src="images/blog_compliance_base.png" alt="Digital POD Software" class="blog-card-img">
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span>May 28, 2026</span>
+                <span>Transportation Software</span>
+              </div>
+              <h3 class="blog-card-title">Why Transporters Need Digital POD Software in 2026</h3>
+              <p class="blog-card-excerpt">Every delivery your truck makes ends with one question: Can you prove it
+                actually happened? For most Indian transporters still relying on physical papers for Proof of Delivery
+                (POD), missing files and billing delays are common. Learn why digital POD is vital.</p>
+              <a href="#" class="blog-card-link">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></a>
+            </div>
+          </div>
+
+          <!-- Post 6 -->
+          <div class="blog-card reveal" data-category="logistics-software">
+            <div class="blog-card-img-wrap">
+              <img src="images/blog_compliance_base.png" alt="GST-Integrated Logistics Software" class="blog-card-img">
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span>May 21, 2026</span>
+                <span>Logistics Software</span>
+              </div>
+              <h3 class="blog-card-title">Why Indian Transporters Need GST-Integrated Logistics Software</h3>
+              <p class="blog-card-excerpt">If you run a transport business in India, GST compliance is no longer
+                something you can manage on the side. With e-way bills and e-invoicing integrated into everyday
+                activities, having dedicated compliance software prevents heavy delays and penalties.</p>
+              <a href="#" class="blog-card-link">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></a>
+            </div>
+          </div>
+
+          <!-- Post 7 -->
+          <div class="blog-card reveal" data-category="tms-software">
+            <div class="blog-card-img-wrap">
+              <img src="images/blog_tech_base.png" alt="What is TMS Software" class="blog-card-img">
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span>May 18, 2026</span>
+                <span>TMS Software</span>
+              </div>
+              <h3 class="blog-card-title">What is TMS Software? A Complete Guide for Indian Logistics</h3>
+              <p class="blog-card-excerpt">India's logistics industry is enormous, and it is only getting bigger. The
+                market was valued at over USD 455 billion. In this competitive landscape, smart software tools like a
+                Transport Management System (TMS) separate profitable companies from the rest.</p>
+              <a href="#" class="blog-card-link">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></a>
+            </div>
+          </div>
+
+          <!-- Post 8 -->
+          <div class="blog-card reveal" data-category="ecommerce-software">
+            <div class="blog-card-img-wrap">
+              <img src="images/blog_tech_base.png" alt="Delivery Management Software E-commerce" class="blog-card-img">
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span>May 18, 2026</span>
+                <span>E-commerce</span>
+              </div>
+              <h3 class="blog-card-title">How Delivery Management Software is Changing E-commerce Logistics in India
+              </h3>
+              <p class="blog-card-excerpt">India's e-commerce industry is on a roll. Millions of orders are placed every
+                single day from metro cities to Tier-3 towns. Discover how dedicated delivery management software drives
+                the speed, accuracy, and customer satisfaction required by online stores.</p>
+              <a href="#" class="blog-card-link">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></a>
+            </div>
+          </div>
+
+          <!-- Post 9 -->
+          <div class="blog-card reveal" data-category="logistics-software">
+            <div class="blog-card-img-wrap">
+              <img src="images/blog_tech_base.png" alt="Express Cargo Management Software" class="blog-card-img">
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span>May 11, 2026</span>
+                <span>Logistics Software</span>
+              </div>
+              <h3 class="blog-card-title">What is Express Cargo Management Software? Guide for Courier Firms</h3>
+              <p class="blog-card-excerpt">If you run a courier business in India, you already know how demanding it has
+                become. Customers want their parcels delivered yesterday. Learn how express cargo management software
+                helps courier firms optimize their routing, schedules, and operations.</p>
+              <a href="#" class="blog-card-link">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></a>
+            </div>
+          </div>
+
+          <!-- Post 10 -->
+          <div class="blog-card reveal" data-category="tms-software">
+            <div class="blog-card-img-wrap">
+              <img src="images/blog_delivery_base.png" alt="Best Fleet Management Software" class="blog-card-img">
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span>May 06, 2026</span>
+                <span>TMS Software</span>
+              </div>
+              <h3 class="blog-card-title">Best Fleet Management Software for Indian Transporters in 2026</h3>
+              <p class="blog-card-excerpt">If you are running a transport business in India, you already know how
+                chaotic it can get. Trucks across multiple routes, fluctuating fuel costs, driver schedules, and
+                maintenance needs are hard to optimize. Let's look at the best fleet software in 2026.</p>
+              <a href="#" class="blog-card-link">Read More <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg></a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- No Results Box -->
+        <div class="blog-no-results" id="blog-no-results">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" width="48" height="48">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            <line x1="8" y1="11" x2="14" y2="11" />
+          </svg>
+          <h3>No Blog Posts Found</h3>
+          <p>We couldn't find any articles matching your search query or selected category.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Let's Talk Logistics Section -->
+    <section class="culture-talk section">
+      <div class="container culture-talk-grid">
+        <div class="culture-talk-left reveal">
+          <h2>Let's Talk Logistics</h2>
+          <p class="talk-subtitle">Have questions or want a demo? Our team is here to help you optimize your operations
+            with data-driven insights.</p>
+          <ul class="talk-features">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" width="16" height="16">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Personalized product walkthrough
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" width="16" height="16">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Expert logistics optimization tips
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" width="16" height="16">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Custom pricing solutions
+            </li>
+          </ul>
+          <a href="our-testimonial.html" class="talk-link">View Customer Stories &rarr;</a>
+        </div>
+        <div class="culture-talk-right reveal">
+          <div class="talk-form-card">
+            <form id="culture-contact-form">
+              <div class="form-group">
+                <label for="ct-name">Your Name</label>
+                <input type="text" id="ct-name" placeholder="John Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="ct-email">Work Email</label>
+                <input type="email" id="ct-email" placeholder="john@company.com" required />
+              </div>
+              <div class="form-group">
+                <label for="ct-phone">Phone number</label>
+                <input type="tel" id="ct-phone" placeholder="+1 (555) 000-0000" required />
+              </div>
+              <div class="form-group">
+                <label for="ct-message">How can we help?</label>
+                <textarea id="ct-message" placeholder="Type here..." rows="4" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary full-width">Get a free consultation</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ready to Transform Section -->
+    <section class="culture-transform section">
+      <div class="container text-center reveal">
+        <h2>Ready to Transform Your Logistics?</h2>
+        <p>Stop managing on spreadsheets. Join 500+ companies who have reclaimed their margins with Logibrisk's
+          intelligent TMS.</p>
+        <div class="transform-badges">
+          <span class="transform-badge"><span class="badge-dot">•</span> GST & E-WAY BILL COMPLIANT</span>
+          <span class="transform-badge"><span class="badge-dot">•</span> 5-DAY ONBOARDING</span>
+          <span class="transform-badge"><span class="badge-dot">•</span> 24/7 DEDICATED SUPPORT</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="LogiBrisk Logo" class="logo-img">
+          </a>
+          <p>Logibrisk was established in the year 2022. India's leading Transportation Management Software, empowering
+            logistics businesses with intelligent technology and connecting people worldwide.</p>
+          <div class="footer-contact-info" style="margin-bottom: var(--space-md);">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" width="16" height="16">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <a href="tel:+919824479555">+91 98244 79555</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" width="16" height="16">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <a href="mailto:sales@logibrisk.com">sales@logibrisk.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" width="16" height="16">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>225-226, Silver Trade Center, Mota Varachha, Uttran, Surat - 394101</span>
+            </div>
+          </div>
+          <div class="footer-social">
+            <a href="#" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"
+                width="18" height="18">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"
+                width="18" height="18">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor" width="18"
+                height="18">
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+              </svg></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="culture.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="blog.html">Blog</a>
+            <a href="ourpeople.html">Our People</a>
+            <a href="index.html#faq">FAQ's</a>
+            <a href="our-testimonial.html">Testimonials</a>
+            <a href="ourclients.html">Our Clients</a>
+            <a href="#">Careers</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Our Services</h4>
+          <div class="footer-links">
+            <a href="fleetmanagementsoftware.html">Fleet Management Software</a>
+            <a href="index.html#services">Express Cargo Management Software</a>
+            <a href="index.html#services">ODC Movements Management Software</a>
+            <a href="index.html#services">E-commerce Delivery Management Software</a>
+            <a href="index.html#services">Last Mile Delivery Management Software</a>
+            <a href="index.html#services">Full Truckload Management Software</a>
+            <a href="index.html#services">Part Truckload Management Software</a>
+            <a href="index.html#services">GST & E-way Bill Enabled Logistics System</a>
+          </div>
+        </div>
+
+        <div class="footer-column footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p style="font-size: 0.82rem; line-height: 1.5; color: rgba(255,255,255,0.6); margin-bottom: 12px;">Subscribe
+            to our newsletter for the latest logistics insights and product updates.</p>
+          <form id="newsletter-form" class="newsletter-form">
+            <div class="newsletter-input-wrap">
+              <svg class="newsletter-mail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <input type="email" placeholder="Your email address" required />
+            </div>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 LogiBrisk. All rights reserved. | Powered by VIZTECH SOFT SOLUTIONS PVT. LTD. | Surat, Gujarat, India
+        </p>
+        <div class="footer-security-badges">
+          <div class="security-badge" title="ISO 27001 Information Security Certified">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" width="14" height="14">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <polyline points="9 11 11 13 15 9" />
+            </svg>
+            <span>ISO 27001 Certified</span>
+          </div>
+          <div class="security-badge" title="GDPR Compliant Data Protection">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" width="14" height="14">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <span>GDPR Compliant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+      stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/script.js"></script>
+
+  <!-- Real-time filtering and search JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('blog-search-input');
+      const categoryBtns = document.querySelectorAll('.blog-category-btn');
+      const blogCards = document.querySelectorAll('.blog-card');
+      const noResultsBox = document.getElementById('blog-no-results');
+
+      let currentSearchQuery = '';
+      let currentCategory = 'all';
+
+      // 1. DYNAMICALLY CALCULATE READING TIME ON DOM LOAD
+      blogCards.forEach(card => {
+        const titleText = card.querySelector('.blog-card-title').textContent;
+        const excerptText = card.querySelector('.blog-card-excerpt').textContent;
+        const combinedWordCount = (titleText + ' ' + excerptText).split(/\s+/).filter(w => w.length > 0).length;
+        // Assume avg reading speed of 200 words per minute + extra for titles/images
+        const readingTimeMin = Math.max(2, Math.ceil(combinedWordCount / 40));
+
+        // Add reading time badge dynamically inside card meta
+        const metaRow = card.querySelector('.blog-card-meta');
+        if (metaRow) {
+          const readingTimeSpan = document.createElement('span');
+          readingTimeSpan.textContent = `${readingTimeMin} min read`;
+          metaRow.appendChild(readingTimeSpan);
+        }
+      });
+
+      // 2. FILTER FUNCTION
+      function applyFilters() {
+        let visibleCount = 0;
+
+        blogCards.forEach(card => {
+          const title = card.querySelector('.blog-card-title').textContent.toLowerCase();
+          const excerpt = card.querySelector('.blog-card-excerpt').textContent.toLowerCase();
+          const category = card.getAttribute('data-category');
+
+          const matchesSearch = title.includes(currentSearchQuery) || excerpt.includes(currentSearchQuery);
+          const matchesCategory = currentCategory === 'all' || category === currentCategory;
+
+          if (matchesSearch && matchesCategory) {
+            card.style.setProperty('display', 'flex', 'important');
+            visibleCount++;
+
+            // Re-apply reveal animation classes if GSAP is loaded
+            if (typeof gsap !== 'undefined') {
+              gsap.to(card, { opacity: 1, scale: 1, duration: 0.4 });
+            }
+          } else {
+            card.style.setProperty('display', 'none', 'important');
+            if (typeof gsap !== 'undefined') {
+              gsap.set(card, { opacity: 0, scale: 0.95 });
+            }
+          }
+        });
+
+        if (visibleCount === 0) {
+          noResultsBox.style.setProperty('display', 'block', 'important');
+        } else {
+          noResultsBox.style.setProperty('display', 'none', 'important');
+        }
+      }
+
+      // 3. SEARCH INPUT LISTENER
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          currentSearchQuery = e.target.value.toLowerCase().trim();
+          applyFilters();
+        });
+      }
+
+      // 4. CATEGORY BUTTONS LISTENER
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          categoryBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentCategory = btn.getAttribute('data-filter');
+          applyFilters();
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fleet Management Software — LogiBrisk | GPS & Route Optimization</title>
+  <meta name="description" content="Optimize your transport operations with LogiBrisk's Fleet Management Software. Features live GPS tracking, route optimization, fuel monitoring, and driver analytics." />
+  <meta property="og:title" content="Fleet Management Software — LogiBrisk TMS" />
+  <meta property="og:description" content="Automate dispatch planning, fuel tracking, and maintenance schedules with our complete logistics ERP platform." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://www.logibrisk.com/service/fleet-management-software/" />
+  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-logo">
+      <img src="images/logo.png" alt="LogiBrisk Logo" class="preloader-logo-img">
+    </div>
+    <div class="preloader-progress-container">
+      <div class="preloader-truck-container">
+        <svg class="preloader-truck" viewBox="0 0 100 45" width="55" height="25" xmlns="http://www.w3.org/2000/svg">
+          <rect x="5" y="5" width="60" height="24" rx="2" fill="#0073AA" />
+          <path d="M12 9 H58 M12 17 H58 M12 25 H58" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />
+          <path d="M66 12 h14 c2 0 4 2 4 4 v13 h-22 z" fill="#005984" />
+          <path d="M72 15 h6 c1.5 0 2 1 2 2.5 v4.5 h-8 z" fill="#E2E8F0" />
+          <rect x="80" y="29" width="5" height="3" fill="#64748B" />
+          <g class="truck-wheel wheel-1">
+            <circle cx="22" cy="33" r="7" fill="#1E293B" stroke="#64748B" stroke-width="1.2" />
+            <circle cx="22" cy="33" r="2" fill="#E2E8F0" />
+            <line x1="22" y1="26" x2="22" y2="40" stroke="#E2E8F0" stroke-width="1" />
+            <line x1="15" y1="33" x2="29" y2="33" stroke="#E2E8F0" stroke-width="1" />
+          </g>
+          <g class="truck-wheel wheel-2">
+            <circle cx="52" cy="33" r="7" fill="#1E293B" stroke="#64748B" stroke-width="1.2" />
+            <circle cx="52" cy="33" r="2" fill="#E2E8F0" />
+            <line x1="52" y1="26" x2="52" y2="40" stroke="#E2E8F0" stroke-width="1" />
+            <line x1="45" y1="33" x2="59" y2="33" stroke="#E2E8F0" stroke-width="1" />
+          </g>
+          <g class="truck-wheel wheel-3">
+            <circle cx="74" cy="33" r="7" fill="#1E293B" stroke="#64748B" stroke-width="1.2" />
+            <circle cx="74" cy="33" r="2" fill="#E2E8F0" />
+            <line x1="74" y1="26" x2="74" y2="40" stroke="#E2E8F0" stroke-width="1" />
+            <line x1="67" y1="33" x2="81" y2="33" stroke="#E2E8F0" stroke-width="1" />
+          </g>
+        </svg>
+      </div>
+      <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+    </div>
+    <div class="preloader-text">Loading</div>
+  </div>
+
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" id="logo">
+        <img src="images/logo.png" alt="LogiBrisk Logo" class="logo-img">
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="logivite.html" class="nav-link-item">LogiVite</a>
+        
+        <!-- Company Dropdown -->
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger">Company <svg class="arrow-icon" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12"
+              height="12">
+              <path d="m6 9 6 6 6-6" />
+            </svg></a>
+          <div class="mega-menu" id="mega-company">
+            <div class="mega-menu-inner company-grid">
+              <div class="company-left-card">
+                <div>
+                  <div class="card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <polygon
+                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  </div>
+                  <h3 class="card-title">Our Vision</h3>
+                  <p class="card-desc">Precision at scale. Transforming supply chains worldwide with high-precision TMS solutions.</p>
+                </div>
+                <a href="ourvision.html" class="card-link">Learn Our Story &rarr;</a>
+              </div>
+
+              <div class="company-right-grid">
+                <a href="culture.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our Culture</div>
+                    <div class="item-desc">Our shared values and workspace</div>
+                  </div>
+                </a>
+                <a href="ourpeople.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M17 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><circle cx="9" cy="7" r="4" /><path d="M9 14a6 6 0 0 0-6 6v1" />
+                    </svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our People</div>
+                    <div class="item-desc">Meet the leadership and engineers</div>
+                  </div>
+                </a>
+                <a href="index.html#faq" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">FAQ's</div>
+                    <div class="item-desc">Got questions? We have answers</div>
+                  </div>
+                </a>
+                <a href="contact.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">contact us</div>
+                    <div class="item-desc">Get in touch with our team</div>
+                  </div>
+                </a>
+                <a href="ourvision.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our Vision</div>
+                    <div class="item-desc">Leading tomorrow's logistics</div>
+                  </div>
+                </a>
+                <a href="ourstory.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3" /><circle cx="12" cy="12" r="10" /><path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" /></svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our Story</div>
+                    <div class="item-desc">Logibrisk origins and milestones</div>
+                  </div>
+                </a>
+                <a href="our-testimonial.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                    </svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Testimonial</div>
+                    <div class="item-desc">What our clients say about us</div>
+                  </div>
+                </a>
+                <div class="mega-item-empty" style="pointer-events: none; opacity: 0; visibility: hidden;"></div>
+                <a href="ourmission.html" class="mega-item">
+                  <div class="item-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>
+                  </div>
+                  <div class="item-text">
+                    <div class="item-title">Our Mission</div>
+                    <div class="item-desc">Delivering seamless operations</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Our Services Dropdown -->
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger">Our Services <svg class="arrow-icon" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12"
+              height="12">
+              <path d="m6 9 6 6 6-6" />
+            </svg></a>
+          <div class="mega-menu" id="mega-services">
+            <div class="mega-menu-inner services-mega-grid">
+              <div class="services-sidebar">
+                <div class="sidebar-header">SERVICE CATEGORIES</div>
+                <ul class="sidebar-menu">
+                  <li class="sidebar-item active" data-category="ops-suite">
+                    <span class="bullet"></span>Operations Suite
+                  </li>
+                  <li class="sidebar-item" data-category="fin-modules">
+                    <span class="bullet"></span>Financial Modules
+                  </li>
+                  <li class="sidebar-item" data-category="int-hub">
+                    <span class="bullet"></span>Integrations Hub
+                  </li>
+                </ul>
+              </div>
+              
+              <div class="services-content" id="services-scroll-container">
+                <div class="services-group" id="group-ops-suite">
+                  <div class="group-title">Operations Suite</div>
+                  <div class="services-items-grid">
+                    <a href="fleetmanagementsoftware.html" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg></div>
+                      <div class="service-mega-title">Fleet Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2m10 0h2a1 1 0 0 0 1-1v-5a1 1 0 0 0-.3-.7l-3.4-3.5a1 1 0 0 0-.7-.3H14" /><circle cx="7.5" cy="18.5" r="2.5" /><circle cx="17.5" cy="18.5" r="2.5" /></svg></div>
+                      <div class="service-mega-title">Express Cargo Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M21 12H3" /><path d="M12 3v18" /></svg></div>
+                      <div class="service-mega-title">ODC Movements Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" /></svg></div>
+                      <div class="service-mega-title">E-commerce Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><polyline points="15 3 21 3 21 9" /><polyline points="9 21 3 21 3 15" /><line x1="21" y1="3" x2="14" y2="10" /><line x1="3" y1="21" x2="10" y2="14" /></svg></div>
+                      <div class="service-mega-title">Full Truckload Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /><path d="M5 9h5" /></svg></div>
+                      <div class="service-mega-title">Part Truckload Management Software</div>
+                    </a>
+                  </div>
+                </div>
+                
+                <div class="services-group" id="group-fin-modules">
+                  <div class="group-title">Financial Modules</div>
+                  <div class="services-items-grid">
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="m14 13-5 5" /><path d="m3 21 3-3" /><path d="m20.6 6.6-4.2-4.2a2 2 0 0 0-2.8 0L9.4 6.6a2 2 0 0 0 0 2.8l4.2 4.2a2 2 0 0 0 2.8 0l4.2-4.2a2 2 0 0 0 0-2.8z" /></svg></div>
+                      <div class="service-mega-title">Auction Management Software</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="4" y="2" width="16" height="20" rx="2" /><line x1="9" y1="14" x2="15" y2="14" /><line x1="9" y1="18" x2="15" y2="18" /><path d="M10 6h4" /><path d="M10 10h4" /></svg></div>
+                      <div class="service-mega-title">Billing &amp; Accounts Management System</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><path d="M16 13H8" /><path d="M16 17H8" /><path d="M10 9H9H8" /></svg></div>
+                      <div class="service-mega-title">GST &amp; E-way Bill Enabled Logistics System</div>
+                    </a>
+                  </div>
+                </div>
+                
+                <div class="services-group" id="group-int-hub">
+                  <div class="group-title">Integrations Hub</div>
+                  <div class="services-items-grid">
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M10 13a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /><path d="M14 11a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /></svg></div>
+                      <div class="service-mega-title">ERP Integrations (SAP, Oracle)</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /><path d="M2 12h20" /></svg></div>
+                      <div class="service-mega-title">GPS &amp; SIM Card Tracking</div>
+                    </a>
+                    <a href="index.html#services" class="service-mega-item">
+                      <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="2" y="2" width="20" height="8" rx="2" ry="2" /><rect x="2" y="14" width="20" height="8" rx="2" ry="2" /><line x1="6" y1="6" x2="6.01" y2="6" /><line x1="6" y1="18" x2="6.01" y2="18" /></svg></div>
+                      <div class="service-mega-title">Fastag Payment APIs</div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Our Products Dropdown -->
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger">Our Products <svg class="arrow-icon" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="12"
+              height="12">
+              <path d="m6 9 6 6 6-6" />
+            </svg></a>
+          <div class="mega-menu" id="mega-products">
+            <div class="mega-menu-inner products-grid">
+              <div class="product-mega-card">
+                <div class="product-card-header">
+                  <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3" /><circle cx="18" cy="18" r="3" /><path d="M18 15v-6a4 4 0 0 0-4-4H9" /><path d="m8 8-3-3 3-3" /></svg></div>
+                  <div class="header-text">
+                    <div class="product-mega-title">Smart Transport</div>
+                    <div class="product-mega-subtitle">End-to-end movement</div>
+                  </div>
+                </div>
+                <ul class="product-links">
+                  <li><a href="index.html#fleet">Smart FTL Management System</a></li>
+                  <li><a href="index.html#fleet">Smart PTL Management System</a></li>
+                  <li><a href="index.html#fleet">Smart Last Mile Delivery System</a></li>
+                </ul>
+              </div>
+              
+              <div class="product-mega-card">
+                <div class="product-card-header">
+                  <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m14 13-5 5" /><path d="m3 21 3-3" /><path d="m20.6 6.6-4.2-4.2a2 2 0 0 0-2.8 0L9.4 6.6a2 2 0 0 0 0 2.8l4.2 4.2a2 2 0 0 0 2.8 0l4.2-4.2a2 2 0 0 0 0-2.8z" /></svg></div>
+                  <div class="header-text">
+                    <div class="product-mega-title">Smart Bidding</div>
+                    <div class="product-mega-subtitle">Auctions &amp; procurement</div>
+                  </div>
+                </div>
+                <ul class="product-links">
+                  <li><a href="fleetmanagementsoftware.html">Smart Fleet Management System</a></li>
+                  <li><a href="index.html#services">Smart Auction Management System</a></li>
+                </ul>
+              </div>
+              
+              <div class="product-mega-card">
+                <div class="product-card-header">
+                  <div class="item-icon-wrapper"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg></div>
+                  <div class="header-text">
+                    <div class="product-mega-title">Smart Accounting</div>
+                    <div class="product-mega-subtitle">Billing &amp; finances</div>
+                  </div>
+                </div>
+                <ul class="product-links">
+                  <li><a href="index.html#services">Smart Billing Management System</a></li>
+                  <li><a href="index.html#services">Smart Accounting Management System</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-primary btn-sm" id="header-cta">
+          Contact Us
+        </a>
+        <div class="mobile-toggle" id="mobile-toggle">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    
+    <!-- Hero Section -->
+    <section class="fleet-hero">
+      <div class="container fleet-hero-grid">
+        <div class="fleet-hero-left reveal">
+          <h1>Fleet Management <br><span class="text-gradient">Software</span></h1>
+          <p>Modern logistics businesses in India need speed, control and visibility to stay competitive. A smart digital solution can help manage complex fleet operations with ease. Our Fleet Management software is built to simplify daily transport challenges and improve efficiency.</p>
+          <p>Manage your transport operations with smart and reliable Fleet Management software India | GPS Tracking & Route Optimization – Logibrisk is designed for Indian logistics businesses. Logibrisk offers a powerful platform that helps you track vehicles, optimize routes, and control fleet operations in real time. It simplifies complex logistics processes and improves overall efficiency.</p>
+          <p>With our Fleet Management software, you can monitor vehicle location, manage drivers, track fuel usage, and plan routes from one dashboard. This reduces delays, lowers operational costs, and improves delivery performance. Real-time alerts and accurate data help you make faster and better decisions every day.</p>
+          <p>The platform is easy to use and works on both mobile and desktop devices. Whether you run a small fleet or a large logistics network, our solution adapts to your needs. With strong security, automation, and real-time insights, Logibrisk helps you manage your fleet with confidence and grow your business faster.</p>
+          
+          <div class="fleet-metrics-row">
+            <div class="fleet-metric-item">
+              <span class="fleet-metric-num">2.4 Billion+</span>
+              <span class="fleet-metric-label">Shipments Completed</span>
+            </div>
+            <div class="fleet-metric-item">
+              <span class="fleet-metric-num">24%</span>
+              <span class="fleet-metric-label">Costs Cut</span>
+            </div>
+            <div class="fleet-metric-item">
+              <span class="fleet-metric-num">100 Billion+</span>
+              <span class="fleet-metric-label">Journeys Done</span>
+            </div>
+          </div>
+          
+          <a href="contact.html" class="btn btn-primary">Schedule Demo</a>
+        </div>
+        
+        <div class="fleet-hero-right reveal">
+          <div class="fleet-demo-form-card">
+            <div class="fleet-form-title">Plan a Demo</div>
+            <form id="fleet-demo-form">
+              <div class="form-group">
+                <label for="fl-name">Your Name</label>
+                <input type="text" id="fl-name" placeholder="John Doe" required />
+              </div>
+              <div class="form-group">
+                <label for="fl-email">Work Email</label>
+                <input type="email" id="fl-email" placeholder="john@company.com" required />
+              </div>
+              <div class="form-group">
+                <label for="fl-phone">Phone number</label>
+                <input type="tel" id="fl-phone" placeholder="+1 (555) 000-0000" required />
+              </div>
+              <div class="form-group">
+                <label for="fl-message">How can we help?</label>
+                <textarea id="fl-message" placeholder="Enter here..." rows="3" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary full-width">Get a free consultation</button>
+            </form>
+            <p style="font-size: 0.68rem; text-align: center; color: #64748B; margin-top: 16px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;">Trusted by 500+ Global Enterprises</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners Logo Marquee -->
+    <section class="fleet-marquee-section">
+      <div class="fleet-marquee-wrapper">
+        <div class="fleet-marquee-track">
+          <!-- Slide logos -->
+          <div class="fleet-marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg> NL Nandwana Logistics</div>
+          <div class="fleet-marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg> SSG Logistics</div>
+          <div class="fleet-marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg> Shree Azad Group</div>
+          <div class="fleet-marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 22 2 12 12 2 22 12 12 22" /></svg> Vastco Logistics</div>
+          <div class="fleet-marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg> SKE Group</div>
+          <div class="fleet-marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg> TrustUs</div>
+          
+          <!-- Duplicate for seamless loop -->
+          <div class="fleet-marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg> NL Nandwana Logistics</div>
+          <div class="fleet-marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M2 12h20" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg> SSG Logistics</div>
+          <div class="fleet-marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg> Shree Azad Group</div>
+          <div class="fleet-marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 22 2 12 12 2 22 12 12 22" /></svg> Vastco Logistics</div>
+          <div class="fleet-marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg> SKE Group</div>
+          <div class="fleet-marquee-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" /></svg> TrustUs</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What is Fleet Management split section -->
+    <section class="fleet-intro-section">
+      <div class="container fleet-intro-grid">
+        <div class="fleet-intro-left reveal">
+          <div class="fleet-intro-image-wrap">
+            <img src="images/fleet_management_intro.png" alt="LogiBrisk Fleet Management Intro Graphic">
+          </div>
+        </div>
+        
+        <div class="fleet-intro-right reveal">
+          <h2 style="font-size: 2rem; font-weight: 800; color: #0F172A; margin-bottom: 20px;">What is Fleet Management Software?</h2>
+          <p style="font-size: 0.95rem; line-height: 1.65; color: #475569;">Fleet operations require proper planning, tracking, and coordination to run smoothly. Without a digital system, managing vehicles and logistics can become complex and time-consuming. This is where Fleet Management software plays an important role. Fleet Management software | GPS Tracking & Route Optimization – Logibrisk is a digital solution that helps businesses manage vehicles, drivers, and logistics operations from one platform. It is widely used by transport companies, logistics providers, and delivery businesses across India.</p>
+          <p style="font-size: 0.95rem; line-height: 1.65; color: #475569;">Logibrisk goes beyond basic tracking. It combines fleet management with billing, accounting management software, and logistics workflows into a single ERP system. This allows businesses to manage everything from shipment booking to financial reporting without switching between multiple tools. The software includes GPS tracking, route optimization, fuel monitoring, maintenance scheduling, and real-time analytics. It helps reduce manual work, improve accuracy, and enhance operational control. Fleet management software in India, GPS tracking & Route Optimization, Logibrisk helps businesses save time, reduce costs, and run their transport operations smoothly.</p>
+          <a href="contact.html" class="btn btn-primary" style="margin-top: 16px;">Get a free consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Services of Fleet Management Software -->
+    <section class="fleet-services-section">
+      <div class="container">
+        <h2 class="section-title text-center">Core Services of Fleet Management Software</h2>
+        <p class="section-subtitle text-center" style="max-width: 800px; margin: 0 auto 50px;">Our Fleet Management Software offers essential services that simplify day-to-day operations, improve control, and enhance operational efficiency. Each service is designed to address the most common challenges in fleet and transport management.</p>
+        
+        <div class="fleet-services-grid">
+          <!-- Card 1 -->
+          <div class="fleet-service-card reveal">
+            <div class="fleet-service-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Vehicle Tracking and Monitoring</h3>
+            <p>Real-time GPS tracking is at the heart of modern fleet management. Our software allows managers to view the precise location, movement, and route history of every vehicle. With this visibility, businesses can quickly address delays, plan alternative routes, and respond to emergencies efficiently. Vehicle tracking software India also helps monitor idle times and unauthorized usage, ensuring better control over assets.</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="fleet-service-card reveal">
+            <div class="fleet-service-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3>Fuel Management</h3>
+            <p>Fuel is one of the largest operating expenses for fleet businesses. Our software tracks fuel consumption for each vehicle, identifies wastage, and prevents pilferage. Insights into fuel usage patterns allow businesses to implement cost-saving strategies and improve overall efficiency. Automated alerts can notify managers when refueling is required or if unusual fuel consumption is detected.</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="fleet-service-card reveal">
+            <div class="fleet-service-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3>Driver Management</h3>
+            <p>Driver behavior directly impacts fleet efficiency and safety. The software monitors metrics like speed, braking, acceleration, and idle times. This enables businesses to reward safe driving, identify areas for improvement, and reduce accident risks. Driver performance data also supports training initiatives and ensures accountability across the fleet.</p>
+          </div>
+          <!-- Card 4 -->
+          <div class="fleet-service-card reveal">
+            <div class="fleet-service-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Maintenance Management</h3>
+            <p>Regular vehicle maintenance reduces breakdowns and extends vehicle life. Our system sends automatic reminders for servicing, inspections, and repairs. Businesses can schedule preventive maintenance, track service history, and minimize costly downtime, ensuring that vehicles remain in optimal condition.</p>
+          </div>
+          <!-- Card 5 -->
+          <div class="fleet-service-card reveal">
+            <div class="fleet-service-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            </div>
+            <h3>Route Planning and Optimization</h3>
+            <p>Efficient route planning is critical for timely deliveries and reduced operational costs. The software analyzes distance, traffic patterns, and delivery priorities to suggest the best routes. Optimized routing saves fuel, reduces travel time, and ensures on-time deliveries, improving overall customer satisfaction.</p>
+          </div>
+          <!-- Card 6 -->
+          <div class="fleet-service-card reveal">
+            <div class="fleet-service-icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <h3>Reports and Analytics</h3>
+            <p>Data-driven insights are key to business growth. Our software provides detailed reports on vehicle performance, fuel consumption, driver behavior, and operational costs. These insights help managers make informed decisions, optimize resource allocation, and improve overall productivity. Customizable dashboards allow businesses to focus on metrics that matter most to their operations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Deep Dive of Fleet Management Software -->
+    <section class="fleet-deep-dive-section">
+      <div class="container">
+        <h2 class="section-title text-center">Features Deep Dive of Fleet Management Software</h2>
+        <p class="section-subtitle text-center" style="max-width: 800px; margin: 0 auto 50px;">Advanced features play a key role in improving logistics performance and reducing manual work. Businesses need smart tools that automate processes and provide real-time insights.</p>
+        
+        <div class="fleet-deep-dive-grid">
+          <!-- Card 1 -->
+          <div class="fleet-deep-dive-card reveal">
+            <div class="fleet-deep-dive-num">1</div>
+            <h3>End-to-End Logistics ERP Platform</h3>
+            <p>As part of LogiBrisk TMS ERP, the software combines fleet operations, billing, accounting, and shipment management into a single platform. From booking shipments to generating financial statements, businesses can manage their entire logistics ecosystem within one unified system, reducing manual effort and errors.</p>
+          </div>
+          <!-- Card 2 -->
+          <div class="fleet-deep-dive-card reveal">
+            <div class="fleet-deep-dive-num">2</div>
+            <h3>E-Way Bill Driven Automation</h3>
+            <p>Direct shipment booking from e-way bills is possible with our e-way bill management software, eliminating manual paperwork and reducing compliance risks. The system also supports e-Way bill extensions and automatic validation, making the legal and documentation process smoother for transport operations.</p>
+          </div>
+          <!-- Card 3 -->
+          <div class="fleet-deep-dive-card reveal">
+            <div class="fleet-deep-dive-num">3</div>
+            <h3>Integrated Financial Management</h3>
+            <p>Accounting is seamlessly integrated within the software, enabling invoices, GST, TDS, banking, and reporting. It ensures accurate financial data, simplified audits, and compliance while reducing dependency on multiple tools and improving financial visibility across operations for better decision-making.</p>
+          </div>
+          <!-- Card 4 -->
+          <div class="fleet-deep-dive-card reveal">
+            <div class="fleet-deep-dive-num">4</div>
+            <h3>Operational Automation</h3>
+            <p>Manual workflows like invoice generation, payment tracking, driver settlements, and document handling are automated, reducing human errors, saving time, and ensuring operational consistency while allowing staff to focus on higher-value tasks, improving efficiency and productivity.</p>
+          </div>
+          <!-- Card 5 -->
+          <div class="fleet-deep-dive-card reveal">
+            <div class="fleet-deep-dive-num">5</div>
+            <h3>Advanced Scanning and Labelling</h3>
+            <p>Barcode scanning and labeling features improve warehouse and PTL operations by making inventory management faster, more accurate, and traceable, reducing errors during shipment handling and delivery while enhancing operational efficiency and ensuring better stock visibility.</p>
+          </div>
+          <!-- Card 6 -->
+          <div class="fleet-deep-dive-card reveal">
+            <div class="fleet-deep-dive-num">6</div>
+            <h3>Real-Time Dashboards and Analytics</h3>
+            <p>Live dashboards provide instant insights on shipment tracking, vehicle utilization, and profitability, helping managers make faster, informed decisions, detect anomalies early, and respond quickly to operational challenges while improving visibility and control across logistics operations.</p>
+          </div>
+          <!-- Card 7 -->
+          <div class="fleet-deep-dive-card reveal">
+            <div class="fleet-deep-dive-num">7</div>
+            <h3>Vendor and Broker Management</h3>
+            <p>Manage vendors, brokers, payments, and contracts in a centralized system, reducing coordination issues, ensuring timely settlements, and strengthening partnerships with third-party service providers while improving transparency, accountability, and communication across the logistics network.</p>
+          </div>
+          <!-- Card 8 -->
+          <div class="fleet-deep-dive-card reveal">
+            <div class="fleet-deep-dive-num">8</div>
+            <h3>Customer and Vendor Portals</h3>
+            <p>Our platform allows login access for customers and vendors, enabling them to track shipments, invoices, and payments without manual follow-ups, improving transparency, strengthening relationships, and reducing administrative workload while enhancing user experience and communication.</p>
+          </div>
+          <!-- Card 9 -->
+          <div class="fleet-deep-dive-card reveal">
+            <div class="fleet-deep-dive-num">9</div>
+            <h3>System Integrations</h3>
+            <p>The software integrates with E-way bill portals, Fastag, GPS providers, Tally, and fuel management systems, ensuring a connected ecosystem that enables seamless operations across multiple platforms while improving data flow, operational efficiency, and real-time tracking across logistics.</p>
+          </div>
+          <!-- Card 10 -->
+          <div class="fleet-deep-dive-card reveal">
+            <div class="fleet-deep-dive-num">10</div>
+            <h3>Customizable ERP Solution</h3>
+            <p>The platform can be tailored to suit the specific needs of smart full truckload management system, PTL, 3PL, and other fleet operators, with custom workflows, reports, and features, ensuring flexibility and scalability while adapting to business requirements and supporting growth.</p>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px;">
+          <a href="contact.html" class="btn btn-primary">Get a free consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-width CTA Banner -->
+    <section class="section" style="background: #FFFFFF;">
+      <div class="container">
+        <div class="fleet-banner-cta reveal">
+          <h2>Let's Make Your Next Move Your Best Move</h2>
+          <p>Take full control of your logistics operations with powerful Fleet Management Software | GPS Tracking & Route Optimization – LogiBrisk Reduce costs</p>
+          <a href="contact.html" class="btn btn-primary" style="background: #FFFFFF; color: #0073AA;">Schedule Demo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Our Fleet Management Solutions -->
+    <section class="fleet-why-section">
+      <div class="container">
+        <h2 class="section-title text-center">Why Choose Our Fleet Management Solutions?</h2>
+        <p class="section-subtitle text-center" style="max-width: 800px; margin: 0 auto 50px;">Our Fleet Management Software is designed to meet the unique challenges of Indian logistics businesses. By combining fleet tracking, operations, billing, and accounting in one platform, it reduces manual work, enhances efficiency, and ensures end-to-end visibility.</p>
+        
+        <div class="fleet-why-grid">
+          <!-- Card 1 -->
+          <div class="fleet-why-card reveal">
+            <div class="fleet-service-icon-wrap" style="margin-bottom: 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+            </div>
+            <div>
+              <h3>Built for Indian Logistics Needs</h3>
+              <p>Our software is designed with a deep understanding of India's logistics landscape. It helps businesses navigate challenges like traffic congestion, regional compliance, and fuel management while maintaining operational efficiency.</p>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="fleet-why-card reveal">
+            <div class="fleet-service-icon-wrap" style="margin-bottom: 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><polygon points="12 2 2 7 12 12 22 7 12 2" /><polygon points="2 17 12 22 22 17 2 17" /><polygon points="2 12 12 17 22 12 2 12" /></svg>
+            </div>
+            <div>
+              <h3>All-in-One Platform</h3>
+              <p>Combining fleet tracking, operations, billing, and accounting eliminates the need for multiple software tools. This all-in-one approach reduces manual work, prevents data silos, and streamlines overall operations with our fleet tracking system for transport company.</p>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="fleet-why-card reveal">
+            <div class="fleet-service-icon-wrap" style="margin-bottom: 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <div>
+              <h3>Improved Efficiency</h3>
+              <p>Centralized operations reduce redundancy, simplify workflows, and improve productivity across all departments. Businesses can focus on growth rather than administrative tasks.</p>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="fleet-why-card reveal">
+            <div class="fleet-service-icon-wrap" style="margin-bottom: 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div>
+              <h3>Scalable and Cost-Effective</h3>
+              <p>Our solution grows with your business. Whether you manage a small fleet or a large transport operation, the software is affordable, flexible, and easy to scale without extra investment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries We Serve sliding marquee -->
+    <section class="fleet-industries-section">
+      <div class="container">
+        <h2 class="section-title text-center">Industries We Serve</h2>
+        <p class="section-subtitle text-center" style="max-width: 800px; margin: 0 auto 20px;">Different industries have unique logistics needs, and a flexible solution is required to manage them effectively. Our Fleet Management Software is designed to support various industries across India.</p>
+        
+        <div class="fleet-marquee-wrapper">
+          <div class="fleet-ind-slider-track">
+            
+            <div class="fleet-ind-card">
+              <div class="fleet-ind-card-title-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="2" /><path d="M9 22V12h6v10" /></svg>
+                <h4>Manufacturing and Distribution</h4>
+              </div>
+              <p>Optimize goods movement, coordinate loading bay schedules, and streamline the entire manufacturing supply chain.</p>
+            </div>
+            
+            <div class="fleet-ind-card">
+              <div class="fleet-ind-card-title-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                <h4>Express Cargo &amp; PTL/FTL</h4>
+              </div>
+              <p>Coordinate shipments of all sizes with high precision, managing branch transshipments and long-haul runs.</p>
+            </div>
+            
+            <div class="fleet-ind-card">
+              <div class="fleet-ind-card-title-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" /></svg>
+                <h4>3PL Service Providers</h4>
+              </div>
+              <p>Streamline third-party logistics with real-time tracking, customer portals, and partner invoice coordination.</p>
+            </div>
+            
+            <div class="fleet-ind-card">
+              <div class="fleet-ind-card-title-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <h4>Cold Chain Logistics</h4>
+              </div>
+              <p>Maintain temperature-controlled supply chains for safe, compliant delivery of pharma and fresh goods.</p>
+            </div>
+            
+            <div class="fleet-ind-card">
+              <div class="fleet-ind-card-title-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
+                <h4>Broker Dispatch</h4>
+              </div>
+              <p>Efficiently assign and monitor third-party brokers for seamless freight dispatch operations and payouts.</p>
+            </div>
+            
+            <div class="fleet-ind-card">
+              <div class="fleet-ind-card-title-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+                <h4>Field Service Businesses</h4>
+              </div>
+              <p>Manage service vehicles and on-field technical staff for timely maintenance and support dispatches.</p>
+            </div>
+
+            <div class="fleet-ind-card">
+              <div class="fleet-ind-card-title-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                <h4>Taxi &amp; Mobility Services</h4>
+              </div>
+              <p>Track passenger mobility fleets, optimize routes, and improve booking and journey safety protocols.</p>
+            </div>
+
+            <!-- Duplicate for seamless loop -->
+            <div class="fleet-ind-card">
+              <div class="fleet-ind-card-title-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="2" /><path d="M9 22V12h6v10" /></svg>
+                <h4>Manufacturing and Distribution</h4>
+              </div>
+              <p>Optimize goods movement, coordinate loading bay schedules, and streamline the entire manufacturing supply chain.</p>
+            </div>
+            
+            <div class="fleet-ind-card">
+              <div class="fleet-ind-card-title-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                <h4>Express Cargo &amp; PTL/FTL</h4>
+              </div>
+              <p>Coordinate shipments of all sizes with high precision, managing branch transshipments and long-haul runs.</p>
+            </div>
+            
+            <div class="fleet-ind-card">
+              <div class="fleet-ind-card-title-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" /></svg>
+                <h4>3PL Service Providers</h4>
+              </div>
+              <p>Streamline third-party logistics with real-time tracking, customer portals, and partner invoice coordination.</p>
+            </div>
+            
+            <div class="fleet-ind-card">
+              <div class="fleet-ind-card-title-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <h4>Cold Chain Logistics</h4>
+              </div>
+              <p>Maintain temperature-controlled supply chains for safe, compliant delivery of pharma and fresh goods.</p>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Benefits of Fleet Management Software -->
+    <section class="fleet-benefits-section">
+      <div class="container fleet-benefits-grid">
+        <div class="fleet-benefits-left reveal">
+          <img src="images/fleet_benefits.png" alt="LogiBrisk Fleet Benefits illustration">
+        </div>
+        
+        <div class="fleet-benefits-right reveal">
+          <h2 style="font-size: 2rem; font-weight: 800; color: #0F172A; margin-bottom: 12px;">Key Benefits of Fleet Management Software</h2>
+          <p style="font-size: 0.94rem; line-height: 1.6; color: #64748B;">Using the right software brings measurable benefits to your business. It helps improve performance, reduce costs, and increase efficiency. Fleet Management Software delivers strong results for logistics companies in India. Logibrisk delivers strong results for logistics companies.</p>
+          
+          <div class="fleet-benefits-list">
+            <!-- Benefit 1 -->
+            <div class="fleet-benefit-item">
+              <div class="fleet-benefit-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="12" height="12"><polyline points="20 6 9 17 4 12" /></svg>
+              </div>
+              <div>
+                <h4>Reduce Operational Costs</h4>
+                <p>Optimize fuel usage, minimize idle time, and reduce unnecessary expenses like vehicle wear and tear.</p>
+              </div>
+            </div>
+            <!-- Benefit 2 -->
+            <div class="fleet-benefit-item">
+              <div class="fleet-benefit-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="12" height="12"><polyline points="20 6 9 17 4 12" /></svg>
+              </div>
+              <div>
+                <h4>Improve Efficiency</h4>
+                <p>Plan routes, increase delivery volume, and enhance overall productivity without expanding vehicle count.</p>
+              </div>
+            </div>
+            <!-- Benefit 3 -->
+            <div class="fleet-benefit-item">
+              <div class="fleet-benefit-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="12" height="12"><polyline points="20 6 9 17 4 12" /></svg>
+              </div>
+              <div>
+                <h4>Enhance Driver Safety</h4>
+                <p>Monitor driving patterns, restrict over-speeding, and reduce risks of route accidents.</p>
+              </div>
+            </div>
+            <!-- Benefit 4 -->
+            <div class="fleet-benefit-item">
+              <div class="fleet-benefit-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="12" height="12"><polyline points="20 6 9 17 4 12" /></svg>
+              </div>
+              <div>
+                <h4>Real-Time Visibility</h4>
+                <p>Access all operational vehicle telemetry and location data on a single unified dashboard.</p>
+              </div>
+            </div>
+            <!-- Benefit 5 -->
+            <div class="fleet-benefit-item">
+              <div class="fleet-benefit-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="12" height="12"><polyline points="20 6 9 17 4 12" /></svg>
+              </div>
+              <div>
+                <h4>Data-Driven Decisions</h4>
+                <p>Utilize advanced trip analytics and reports for strategic planning and structural process improvements.</p>
+              </div>
+            </div>
+            <!-- Benefit 6 -->
+            <div class="fleet-benefit-item">
+              <div class="fleet-benefit-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" width="12" height="12"><polyline points="20 6 9 17 4 12" /></svg>
+              </div>
+              <div>
+                <h4>Scalable Growth</h4>
+                <p>Expand logistics operations seamlessly with a flexible and scalable ERP system built for long-term growth.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Product Links Section -->
+    <section class="fleet-products-section">
+      <div class="container">
+        <h2 class="section-title text-center">Our products</h2>
+        <p class="section-subtitle text-center" style="max-width: 800px; margin: 0 auto;">We provide a comprehensive suite of logistics and management solutions tailored to diverse business needs. These products streamline operations, improve control, and ensure seamless workflows.</p>
+        
+        <div class="fleet-products-grid">
+          <a href="index.html#fleet" class="fleet-product-card">
+            <h4>Smart Logistics Management System (FTL &amp; PTL)</h4>
+            <p>Manage full truckload (FTL) and part truckload (PTL) operations, bookings, dispatches, and warehouse cross-dock activities seamlessly.</p>
+          </a>
+          
+          <a href="index.html#services" class="fleet-product-card">
+            <h4>Smart Billing Management System</h4>
+            <p>Automate GST and transport invoice generation, toll card payments, client billing collections, and automated driver settlement receipts.</p>
+          </a>
+          
+          <a href="index.html#services" class="fleet-product-card">
+            <h4>Accounting Management System</h4>
+            <p>Centralize your transport ledger, manage business taxation compliance, record bank audits, and analyze trip-level Profit &amp; Loss accounts.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="LogiBrisk Logo" class="logo-img">
+          </a>
+          <p>Logibrisk was established in the year 2022. India's leading Transportation Management Software, empowering logistics businesses with intelligent technology and connecting people worldwide.</p>
+          <div class="footer-contact-info" style="margin-bottom: var(--space-md);">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+919824479555">+91 98244 79555</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:sales@logibrisk.com">sales@logibrisk.com</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>225-226, Silver Trade Center, Mota Varachha, Uttran, Surat - 394101</span>
+            </div>
+          </div>
+          <div class="footer-social">
+            <a href="#" class="social-icon" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="culture.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="blog.html">Blog</a>
+            <a href="ourpeople.html">Our People</a>
+            <a href="index.html#faq">FAQ's</a>
+            <a href="our-testimonial.html">Testimonials</a>
+            <a href="ourclients.html">Our Clients</a>
+            <a href="#">Careers</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Our Services</h4>
+          <div class="footer-links">
+            <a href="fleetmanagementsoftware.html">Fleet Management Software</a>
+            <a href="index.html#services">Express Cargo Management Software</a>
+            <a href="index.html#services">ODC Movements Management Software</a>
+            <a href="index.html#services">E-commerce Delivery Management Software</a>
+            <a href="index.html#services">Last Mile Delivery Management Software</a>
+            <a href="index.html#services">Full Truckload Management Software</a>
+            <a href="index.html#services">Part Truckload Management Software</a>
+            <a href="index.html#services">GST & E-way Bill Enabled Logistics System</a>
+          </div>
+        </div>
+
+        <div class="footer-column footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p style="font-size: 0.82rem; line-height: 1.5; color: rgba(255,255,255,0.6); margin-bottom: 12px;">Subscribe to our newsletter for the latest logistics insights and product updates.</p>
+          <form id="newsletter-form" class="newsletter-form">
+            <div class="newsletter-input-wrap">
+              <svg class="newsletter-mail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <input type="email" placeholder="Your email address" required />
+            </div>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 LogiBrisk. All rights reserved. | Powered by VIZTECH SOFT SOLUTIONS PVT. LTD. | Surat, Gujarat, India</p>
+        <div class="footer-security-badges">
+          <div class="security-badge" title="ISO 27001 Information Security Certified">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 11 11 13 15 9"/></svg>
+            <span>ISO 27001 Certified</span>
+          </div>
+          <div class="security-badge" title="GDPR Compliant Data Protection">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>GDPR Compliant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/script.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Basic Lead Form Success Alert animation
+      const form = document.getElementById('fleet-demo-form');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('fl-name').value;
+          alert(`Thank you ${name}! Your request for a free consultation has been registered. Our fleet expert will contact you shortly.`);
+          form.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
